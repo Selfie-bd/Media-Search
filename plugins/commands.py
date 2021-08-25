@@ -103,7 +103,11 @@ async def start(bot, cmd):
                         InlineKeyboardButton("🔗 Our-LinkZ", url="https://t.me/PrimeFlixMedia_All")
                     ],
                     [
-                        InlineKeyboardButton("About", callback_data="about")
+                        InlineKeyboardButton("My-CreatoR🧑‍💻", url="https://t.me/CLaY995")
+                    ],
+                    [
+                        InlineKeyboardButton("About", callback_data="about"),
+                        InlineKeyboardButton("Group", url="https://t.me/PrimeFlix_Chats")
                     ]
                 ]
             )
