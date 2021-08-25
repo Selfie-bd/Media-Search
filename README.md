@@ -1,14 +1,26 @@
-# Modified Version Of [Media Search bot](https://github.com/Mahesh0253/Media-Search-bot)
+# Just an Updated Auto-Filter Bot.
+### [![telegram badge](https://img.shields.io/badge/@CLaY995-30302f?style=for-the-badge&logo=telegram)](https://t.me/CLaY995)
+# [![PFM](https://img.shields.io/badge/PrimeFlix-Channel-orange?style=for-the-badge&logo=telegram)](https://t.me/PrimeFlixMedia_All)  
 
-## Added Features
-* Imdb posters for autofilter.
+## Added Features ⚙️
+* Imdb posters for <b>AUTO-FILTER</b>.
 * Custom captions for your files.
-* Index command to index all the files in a given channel (No USER_SESSION Required).
+* Index command to index all the files in a given channel (No **USER_SESSION** Required).
 * Ability to Index Public Channels without being admin.
-* Support Auto-Filter (Both in PM and in Groups)
+* Support Auto-Filter (Both in <b>PM</b> and in **GROUPS**)
 * Once files saved in Database , exists until you manually deletes. (No Worry if post gets deleted from source channel.)
-* Added Force subscribe (Only channel subscribes can use the bot)
+* Added **FORCE SUBSCRIBE** (Only channel subscribes can use the bot)
 * Ability to restrict groups(AUTH_GROUPS)
+
+```bash
+JuZt EditeD by @CLaY995 🧑‍💻.
+NB: Not Created by Me 🤭.
+
+# Special CreditZ to:
+SubinPs
+Trojanz Hex
+Albert
+```
 
 ## Installation
 
@@ -46,7 +58,7 @@ Check [`sample_info.py`](sample_info.py) before editing [`info.py`](info.py) fil
 ### Optional Variables
 * `OMDB_API_KEY`: OMBD_API_KEY to generate imdb poster for filter results.Get it from [omdbapi.com](http://www.omdbapi.com/apikey.aspx)
 * `CUSTOM_FILE_CAPTION` : A custom caption for your files. You can format it with file_name, file_size, file_caption.(supports html formating)
-Example: `<b>Join [XTZ Bots](https://t.me/subin_works) for more useful bots</b>\n\n<code>{file_name}</code>\nSize{file_size}\n{file_caption}.`
+Example: `<b>Join [PFM-LinkZ](https://t.me/PrimeFlixMedia_All) for more useful bots</b>\n\n<code>{file_name}</code>\nSize{file_size}\n{file_caption}.`
 * `AUTH_GROUPS` : ID of groups which bot should work as autofilter, bot can only work in thease groups. If not given , bot can be used in any group.
 * `COLLECTION_NAME`: Name of the collections. Defaults to Telegram_files. If you going to use same database, then use different collection name for each bot
 * `CACHE_TIME`: The maximum amount of time in seconds that the result of the inline query may be cached on the server
@@ -80,9 +92,9 @@ logger - Get log file
 
 
 ## Support
-Contact Me On [Telegram](https://t.me/subinps_bot)
+Contact Me On [Telegram](https://t.me/ClaeyZ_UBot)
 
-[Update Channel](https://t.me/subin_works)
+[My-ChannelZ](https://t.me/PrimeFlixMedia_All)
 
 ## License
 Code released under [The GNU General Public License](LICENSE).
