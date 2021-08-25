@@ -27,11 +27,11 @@ async def start(bot, cmd):
                 ident, file_id = cmd.text.split("_-_-_-_")
                 await bot.send_message(
                     chat_id=cmd.from_user.id,
-                    text="**Please Join My Updates Channel to use this Bot!**",
+                    text="**1️⃣: Join the CHANNEL & Click "Try Again".**",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("Our-LinkZ", url=invite_link.invite_link)
+                                InlineKeyboardButton("♻️Join the CHANNEL♻️", url=invite_link.invite_link)
                             ],
                             [
                                 InlineKeyboardButton(" 🔄 Try Again", callback_data=f"checksub#{file_id}")
@@ -66,7 +66,7 @@ async def start(bot, cmd):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('Search Again', switch_inline_query_current_chat=''),
+                        InlineKeyboardButton('📡sʜᴀʀᴇ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats'),
                         InlineKeyboardButton('Our-LinkZ', url='https://t.me/PrimeFlixMedia_All')
                     ]
                     ]
@@ -99,8 +99,8 @@ async def start(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Search Here", switch_inline_query_current_chat=''),
-                        InlineKeyboardButton("Our-LinkZ", url="https://t.me/PrimeFlixMedia_All")
+                        InlineKeyboardButton("🔎 Search Here", switch_inline_query_current_chat=''),
+                        InlineKeyboardButton("🔗 Our-LinkZ", url="https://t.me/PrimeFlixMedia_All")
                     ],
                     [
                         InlineKeyboardButton("About", callback_data="about")
@@ -192,7 +192,7 @@ async def delete(bot, message):
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Our-ChannelZ', url='https://t.me/subin_works'),
+            InlineKeyboardButton('Our-ChannelZ', url='https://t.me/PrimeFlixMedia_All'),
             InlineKeyboardButton('Source-Code', url='https://t.me/Oomban_ULLATH')
         ]
         ]
