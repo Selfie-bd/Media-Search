@@ -124,6 +124,12 @@ async def group(client, message):
             BOT["username"]=nyva
         files = await get_filter_results(query=search)
         if files:
+            btn.append(
+                   [
+                       InlineKeyboardButton("🎥:мσνιєѕ⭕", url="https://t.me/joinchat/dZmnXiQ5a2ViMWZl"),
+                       InlineKeyboardButton("📽:ѕєяιєѕ⭕", url="https://t.me/joinchat/vz04fx0LgSI5MzZl")
+                   ]
+               )
             for file in files:
                 file_id = file.file_id
                 filename = f"📀:[{get_size(file.file_size)}]📂{file.file_name}"
