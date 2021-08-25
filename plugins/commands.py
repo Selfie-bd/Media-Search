@@ -31,7 +31,7 @@ async def start(bot, cmd):
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+                                InlineKeyboardButton("Our-LinkZ", url=invite_link.invite_link)
                             ],
                             [
                                 InlineKeyboardButton(" 🔄 Try Again", callback_data=f"checksub#{file_id}")
@@ -66,8 +66,8 @@ async def start(bot, cmd):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('Search again', switch_inline_query_current_chat=''),
-                        InlineKeyboardButton('More Bots', url='https://t.me/subin_works/122')
+                        InlineKeyboardButton('Search Again', switch_inline_query_current_chat=''),
+                        InlineKeyboardButton('Our-LinkZ', url='https://t.me/PrimeFlixMedia_All')
                     ]
                     ]
                 await bot.send_cached_media(
@@ -82,11 +82,11 @@ async def start(bot, cmd):
         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
         await bot.send_message(
             chat_id=cmd.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!**",
+            text="**Please Join My Channel to use this Bot!**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+                        InlineKeyboardButton("♻️Join our CHANNEL♻️", url=invite_link.invite_link)
                     ]
                 ]
             )
@@ -100,7 +100,7 @@ async def start(bot, cmd):
                 [
                     [
                         InlineKeyboardButton("Search Here", switch_inline_query_current_chat=''),
-                        InlineKeyboardButton("Other Bots", url="https://t.me/subin_works/122")
+                        InlineKeyboardButton("Our-LinkZ", url="https://t.me/PrimeFlixMedia_All")
                     ],
                     [
                         InlineKeyboardButton("About", callback_data="about")
@@ -192,8 +192,8 @@ async def delete(bot, message):
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Update Channel', url='https://t.me/subin_works'),
-            InlineKeyboardButton('Source Code', url='https://github.com/subinps/Media-Search-bot')
+            InlineKeyboardButton('Our-ChannelZ', url='https://t.me/subin_works'),
+            InlineKeyboardButton('Source-Code', url='https://t.me/Oomban_ULLATH')
         ]
         ]
-    await message.reply(text="<b>Developer : <a href='https://t.me/subinps_bot'>SUBIN</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://github.com/subinps/Media-Search-bot'>Click here</a>\nUpdate Channel : <a href='https://t.me/subin_works'>XTZ Bots</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(text="<b>Developer : <a href='https://t.me/CLaY995'>CLAEY</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://t.me/Oomban_ULLATH'>Click here</a>\nUpdate Channel : <a href='https://t.me/PrimeFlixMedia_All'>👉😁😁👈</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
