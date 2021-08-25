@@ -27,7 +27,7 @@ async def start(bot, cmd):
                 ident, file_id = cmd.text.split("_-_-_-_")
                 await bot.send_message(
                     chat_id=cmd.from_user.id,
-                    text="**1️⃣: Join the CHANNEL & Click "Try Again.**",
+                    text="**1️⃣: Join the CHANNEL & Click & Try Again.**",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
