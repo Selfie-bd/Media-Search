@@ -84,7 +84,7 @@ async def filter(client, message):
                 await message.reply_photo(photo=poster, caption=f"<b>📀:Requested-Movie:<code>{search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
 
             else:
-                await message.reply_photo(photo="https://telegra.ph/file/4e1977436f7f07662db3a.jpg", caption"<b>📀:Requested-Movie:<code>{search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_text(f"<b>📀:Requested-Movie:<code>{search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
