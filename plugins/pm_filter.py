@@ -1,4 +1,4 @@
-#Kanged From @TroJanZheX
+#Edited by @CLaY995
 from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
@@ -87,10 +87,10 @@ async def filter(client, message):
             if API_KEY:
                 poster=await get_poster(search)
             if poster:
-                await message.reply_photo(photo=poster, caption=f"<b>📀:Requested-Movie: <code>{search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo=poster, caption=f"<b>  🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n🎬:Movie: <i>{search}</i>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
 
             else:
-                await message.reply_text(f"<b>📀:Requested-Movie: <code>{search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_text(f"<b>  🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n🎬:Movie: <i>{search}</i>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -100,15 +100,15 @@ async def filter(client, message):
             [InlineKeyboardButton(text="🚀𝗡𝗘𝗫𝗧🚀",callback_data=f"next_0_{keyword}")]
         )    
         buttons.append(
-            [InlineKeyboardButton(text=f"🔖 Pages 1/{data['total']}🔖",callback_data="pages")]
+            [InlineKeyboardButton(text=f"🔖 ℙ𝔸𝔾𝔼 1/{data['total']}🔖",callback_data="pages")]
         )
         poster=None
         if API_KEY:
             poster=await get_poster(search)
         if poster:
-            await message.reply_photo(photo=poster, caption=f"📀:Requested-Movie: <code>{search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo=poster, caption=f"<b>  🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n🎬:Movie: <i>{search}</i>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            await message.reply_text(f"<b>📀:Requested-Movie: <code>{search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_text(f"  🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n<b>🎬:Movie: <i>{search}</i>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
 
 @Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(AUTH_GROUPS) if AUTH_GROUPS else filters.text & filters.group & filters.incoming)
 async def group(client, message):
@@ -157,9 +157,9 @@ async def group(client, message):
             if API_KEY:
                 poster=await get_poster(search)
             if poster:
-                await message.reply_photo(photo=poster, caption=f"<b>📀:Requested-Movie: <code>{search}</code>\n\n♻️: Powered-By: @PrimeFlixMedia_All­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo=poster, caption=f"<b>  🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n🎬:Movie: <i>{search}</i>\n\n♻️: Powered-By: @PrimeFlixMedia_All­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
             else:
-                await message.reply_text(f"<b>📀:Requested-Movie: <code>{search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_text(f"<b>  🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n‌🎬:Movie: <i>{search}</i>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -175,9 +175,9 @@ async def group(client, message):
         if API_KEY:
             poster=await get_poster(search)
         if poster:
-            await message.reply_photo(photo=poster, caption=f"<b>📀:Requested-Movie: <code>{search}</code>\n\n♻️: Powered-By: @PrimeFlixMedia_All   ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo=poster, caption=f"<b>  🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n🎬:Movie: <i>{search}</i>\n\n♻️: Powered-By: @PrimeFlixMedia_All   ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            await message.reply_text(f"<b>📀:Requested-Movie: <code>{search}</code>\n\n♻️: Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_text(f"  🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n<b>🎬:Movie: <i>{search}</i>\n\n♻️: Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
 
     
 def get_size(size):
@@ -358,4 +358,4 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "pages":
             await query.answer()
     else:
-        await query.answer("This is NOT for YoU!, Search Up on ur Own",show_alert=True)
+        await query.answer("😑This is NOT for YoU!, Search Up on ur Own",show_alert=True)
