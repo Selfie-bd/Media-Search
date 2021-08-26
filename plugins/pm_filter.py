@@ -159,9 +159,9 @@ async def group(client, message):
             if API_KEY:
                 poster=await get_poster(search)
             if poster:
-                await message.reply_photo(photo=poster, caption=f"<b>🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n🎬:Movie: <code>{up_search}</code>\n\n♻️:Powered-By: @PrimeFlixMedia_All­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo=poster, caption=f"<b>🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n🎬:Movie: {up_search}\n🌩️ Total Results: {len(btn)}\n\n© @PrimeFlixMedia_All­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
             else:
-                await message.reply_text(f"<b>🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n‌\n🎬:Movie: <code>{up_search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_text(f"<b>🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n‌\n🎬:Movie: {up_search}\n🌩️ Total Results: {len(btn)}\n\n© @PrimeFlixMedia_All ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -177,9 +177,9 @@ async def group(client, message):
         if API_KEY:
             poster=await get_poster(search)
         if poster:
-            await message.reply_photo(photo=poster, caption=f"<b>🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n🎬:Movie: <code>{up_search}</code>\n\n♻️:Powered-By: @PrimeFlixMedia_All   ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo=poster, caption=f"<b>🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n🎬:Movie: {up_search}\n🌩️ Total Results: {len(btn)}\n\n© @PrimeFlixMedia_All   ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            await message.reply_text(f"🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n<b>🎬:Movie: <code>{up_search}</code>\n\n♻️:Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_text(f"🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n<b>🎬:Movie: {up_search}\n🌩️ Total Results: {len(btn)}\n\n© @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
 
     
 def get_size(size):
