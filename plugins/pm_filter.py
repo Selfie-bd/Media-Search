@@ -73,7 +73,7 @@ async def filter(client, message):
             return
 
         if len(btn) > 10: 
-            btns = list(split_list(btn, 10)) 
+            btns = list(split_list(btn, 10))
             keyword = f"{message.chat.id}-{message.message_id}"
             BUTTONS[keyword] = {
                 "total" : len(btns),
@@ -85,13 +85,15 @@ async def filter(client, message):
                 [InlineKeyboardButton(text="🔖 ℙ𝔸𝔾𝔼 1/1🔖",callback_data="pages")]
             )
             poster=None
+            len_btn = len(btn)
+            len_buttons = len(buttons)
             if API_KEY:
                 poster=await get_poster(search)
             if poster:
-                await message.reply_photo(photo=poster, caption=f"<b>🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n🎬:Movie: <code>{up_search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo=poster, caption=f"<b>🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n🎬:Movie: {up_search}\n🌩️ Total Results: {len_buttons}\n\n© @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
 
             else:
-                await message.reply_text(f"<b>🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n🎬:Movie: <code>{up_search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_text(f"<b>🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n🎬:Movie: {up_search}‌‎\n🌩️ Total Results: {len_buttons}\n\n© @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
@@ -107,9 +109,9 @@ async def filter(client, message):
         if API_KEY:
             poster=await get_poster(search)
         if poster:
-            await message.reply_photo(photo=poster, caption=f"<b>🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n🎬:Movie: <code>{up_search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo=poster, caption=f"<b>🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n🎬:Movie: {up_search}\n🌩️ Total Results: {len_buttons}\n\n© @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            await message.reply_text(f"🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n<b>🎬:Movie: <code>{up_search}</code>‌‎\n\n♻️Powered-By: @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_text(f"🇵‌🇫‌🇲 ᶜʰᵃᵗˢ \n\n<b>🎬:Movie: {up_search}\n🌩️ Total Results: {len_results}\n\n© @PrimeFlixMedia_All ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>", reply_markup=InlineKeyboardMarkup(buttons))
 
 @Client.on_message(filters.text & filters.group & filters.incoming & filters.chat(AUTH_GROUPS) if AUTH_GROUPS else filters.text & filters.group & filters.incoming)
 async def group(client, message):
