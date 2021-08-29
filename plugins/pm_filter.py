@@ -1,6 +1,6 @@
 #Edited by @CLaY995
 from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, START_MSG
-from sample_info import HELP_TEXT
+from sample_info import HELP_TEXT, MAL_HELP_TXT
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
 import re
@@ -318,11 +318,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "help":
             buttons = [
                 [
+                    InlineKeyboardButton('Malayalam Translation 🌐', callback_data='mal_help')
+                ],
+                [
                     InlineKeyboardButton('Home', callback_data='start')
                 ]
                 ]
             await query.message.edit(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
             
+        elif query.data == "mal_help":
+            buttons = [
+                [
+                    InlineKeyboardButton('Home', callback_data='start')
+                ]
+                ]
+            await query.message.edit(MAL_HELP_TXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data.startswith("subinps"):
             ident, file_id = query.data.split("#")
