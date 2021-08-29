@@ -201,6 +201,9 @@ async def bot_info(bot, message):
         [
             InlineKeyboardButton('Our-ChannelZ', url='https://t.me/PrimeFlixMedia_All'),
             InlineKeyboardButton('Source-Code', url='https://t.me/Oomban_ULLATH')
+        ],
+        [
+            InlineKeyboardButton('Back', callback_data='start')
         ]
         ]
     await message.reply(text="<b>Developer : <a href='https://t.me/CLaY995'>CLAEY</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://t.me/Oomban_ULLATH'>Click here</a>\nUpdate Channel : <a href='https://t.me/PrimeFlixMedia_All'>👉😁😁👈</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
