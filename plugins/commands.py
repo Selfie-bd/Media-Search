@@ -98,7 +98,6 @@ async def start(bot, cmd):
             photo=bot_logo,
             caption=START_MSG,
             parse_mode="Markdown",
-            disable_web_page_preview=False,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
