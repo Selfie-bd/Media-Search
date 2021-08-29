@@ -301,7 +301,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton("➕Add me to Group✅", url="https://t.me/PFM_MediaSearchBot?startgroup=true")
                 ]
                 ]
-            await query.message.edit(START_MSG.format(message.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode="html", disable_web_page_preview=True)
+            await query.message.edit(START_MSG.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode="html", disable_web_page_preview=True)
 
         elif query.data == "about":
             buttons = [
