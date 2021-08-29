@@ -35,7 +35,7 @@ HELP_TEXT = """
 **If you want to Set me up in your Group, Just Add me to your Group & Make Me an Admin.**
 **I will respond to the Queries in your Group with Files 🗃️ in my Database.**
 
-**While Requesting for Files in the Group always remeber to Type in the Exact Movie-Name (`copy_paste from Google`).**
+**While Requesting for Files in the Group always remember to Type in the Exact Movie-Name (`copy_paste from Google`).**
 
 Use **🔍 Search Here** to search for Files 🗃️ **Inline**.
 """
