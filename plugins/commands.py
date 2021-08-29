@@ -95,7 +95,7 @@ async def start(bot, cmd):
         await cmd.reply_photo(
             photo="https://telegra.ph/file/050f91352c8616ba05bfa.jpg",
             caption=START_MSG,
-            parse_mode="Markdown"
+            parse_mode="Markdown",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
