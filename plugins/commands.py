@@ -92,8 +92,9 @@ async def start(bot, cmd):
             )
         )
     else:
-        await cmd.reply_text(
-            START_MSG,
+        await cmd.reply_photo(
+            photo="https://telegra.ph/file/050f91352c8616ba05bfa.jpg",
+            caption=START_MSG,
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -108,6 +109,9 @@ async def start(bot, cmd):
                     [
                         InlineKeyboardButton("About", callback_data="about"),
                         InlineKeyboardButton("Group", url="https://t.me/PrimeFlix_Chats")
+                    ],
+                    [
+                        InlineKeyboardButton("Add me to Group", url="htps://t.me/PFM_MediaSearchBot?startgroup=true")
                     ]
                 ]
             )
@@ -150,7 +154,7 @@ async def total(bot, message):
     msg = await message.reply("Processing...⏳", quote=True)
     try:
         total = await Media.count_documents()
-        await msg.edit(f'📁 Saved files: {total}')
+        await msg.edit(f'📁 Total Files Saved: {total}')
     except Exception as e:
         logger.exception('Failed to check total files')
         await msg.edit(f'Error: {e}')
