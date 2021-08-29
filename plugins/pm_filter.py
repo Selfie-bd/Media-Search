@@ -8,6 +8,8 @@ from pyrogram.errors import UserNotParticipant
 from utils import get_filter_results, get_file_details, is_subscribed, get_poster
 BUTTONS = {}
 BOT = {}
+bot_logo = "https://telegra.ph/file/c3276eacd309bf0715d3e.jpg"
+
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
 async def filter(client, message):
     if message.text.startswith("/"):
@@ -301,7 +303,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton("➕Add me to Group✅", url="https://t.me/PFM_MediaSearchBot?startgroup=true")
                 ]
                 ]
-            await query.message.edit(START_MSG, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(photo=bot_logo, caption=START_MSG, reply_markup=InlineKeyboardMarkup(buttons))
 
         elif query.data == "about":
             buttons = [
@@ -313,7 +315,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('Back', callback_data='start')
                 ]
                 ]
-            await query.message.edit(text="<b>🧑‍💻Creator : <a href='https://t.me/ClaeyZ_UBot'>CLÆ͜͡Ｙ</a>\n🌏Language : <code>Python3</code>\n📚Library : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\n📋Source-Code : <a href='https://t.me/Oomban_ULLATH'>🔘Click here</a>\n📡Ma-Channel : <a href='https://t.me/PrimeFlixMedia_All'>PFM Links</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(text="<b>🧑‍💻Creator : <a href='https://t.me/ClaeyZ_UBot'>CLÆ͜͡Ｙ</a>\n🌏Language : <code>Python3</code>\n📚Library : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\n📋Source-Code : <a href='https://t.me/Oomban_ULLATH'>🔘Click here</a>\n📡Ma-Channel : <a href='https://t.me/PrimeFlixMedia_All'>PFM Links</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=False)
 
         elif query.data == "help":
             buttons = [
@@ -324,7 +326,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('Home', callback_data='start')
                 ]
                 ]
-            await query.message.edit(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=False)
             
         elif query.data == "mal_help":
             buttons = [
@@ -332,7 +334,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('Home', callback_data='start')
                 ]
                 ]
-            await query.message.edit(MAL_HELP_TXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(MAL_HELP_TXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=False)
 
         elif query.data.startswith("subinps"):
             ident, file_id = query.data.split("#")
