@@ -8,8 +8,6 @@ from pyrogram.errors import UserNotParticipant
 from utils import get_filter_results, get_file_details, is_subscribed, get_poster
 BUTTONS = {}
 BOT = {}
-bot_logo = "https://telegra.ph/file/c3276eacd309bf0715d3e.jpg"
-
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
 async def filter(client, message):
     if message.text.startswith("/"):
@@ -289,11 +287,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "start":
             buttons = [
                 [
-                    InlineKeyboardButton("🔎 Search Here", switch_inline_query_current_chat=''),
-                    InlineKeyboardButton("🔗 Our-LinkZ", url="https://t.me/PrimeFlixMedia_All")
+                    InlineKeyboardButton("My-CreatoR🧑‍💻", url="https://t.me/CLaY995")
                 ],
                 [
-                    InlineKeyboardButton("My-CreatoR🧑‍💻", url="https://t.me/CLaY995")
+                    InlineKeyboardButton("🔎 Search Here", switch_inline_query_current_chat=''),
+                    InlineKeyboardButton("🔗 Our-LinkZ", url="https://t.me/PrimeFlixMedia_All")
                 ],
                 [
                     InlineKeyboardButton("About", callback_data="about"),
