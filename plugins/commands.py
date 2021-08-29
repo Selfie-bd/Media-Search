@@ -3,7 +3,7 @@ import logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from info import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
-from sample_info import HELP_TEXT
+from sample_info import HELP_TEXT, MAL_HELP_TXT
 from utils import Media, get_file_details
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
@@ -209,9 +209,21 @@ async def bot_info(bot, message):
         ]
     await message.reply(text="<b>Developer : <a href='https://t.me/CLaY995'>CLAEY</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://t.me/Oomban_ULLATH'>Click here</a>\nUpdate Channel : <a href='https://t.me/PrimeFlixMedia_All'>👉😁😁👈</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
+@Client.on.message(filters.command('mal_help'))
+async def mal_help(bot, message):
+    buttons = [
+        [
+            InlineKeyboardButton('Home', callback_data='start')
+        ]
+        ]
+    await message.reply(MAL_HELP_TXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
 @Client.on_message(filters.command('help'))
 async def help(bot, message):
     buttons = [
+        [
+            InlineKeyboardButton('Malayalam Translation 🌐', callback_data='mal_help')
+        ],
         [
             InlineKeyboardButton('Home', callback_data='start')
         ]
