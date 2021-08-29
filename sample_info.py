@@ -30,3 +30,10 @@ Here you can search files in inline mode. Just press follwing buttons and start 
 
 SHARE_BUTTON_TEXT = 'Checkout {username} for searching files'
 INVITE_MSG = 'Please join @.... to use this bot'
+
+HELP_TEXT = """
+**If you want to Set me up in your Group, Just Add me to your Group & Make Me an Admin.**
+**I will respond to the Queries in your Group with Files 🗃️ in my Database.**
+
+Use **🔍 Search Here** to search for Files 🗃️ **Inline**.
+"""
