@@ -8,6 +8,7 @@ from utils import Media, get_file_details
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
 bot_logo = "https://telegra.ph/file/8662d4ba64f2b4bf136a0.jpg"
+
 @Client.on_message(filters.command("start"))
 async def start(bot, cmd):
     usr_cmdall1 = cmd.text
