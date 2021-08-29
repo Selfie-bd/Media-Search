@@ -96,21 +96,21 @@ async def start(bot, cmd):
         )
     else:
         await cmd.reply_text(
-            START_MSG,
+            START_MSG.format(cmd.from_user.mention),
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
+                        InlineKeyboardButton("My CreatoR🧑‍💻", url="https://t.me/CLaY995")
+                    ]
+                    [
                         InlineKeyboardButton("🔎 Search Here", switch_inline_query_current_chat=''),
                         InlineKeyboardButton("🔗 Our-LinkZ", url="https://t.me/PrimeFlixMedia_All")
                     ],
                     [
-                        InlineKeyboardButton("My-CreatoR🧑‍💻", url="https://t.me/CLaY995")
-                    ],
-                    [
-                        InlineKeyboardButton("About", callback_data="about"),
-                        InlineKeyboardButton("Help", callback_data="help")
+                        InlineKeyboardButton("About 👤", callback_data="about"),
+                        InlineKeyboardButton("Help 💭", callback_data="help")
                     ],
                     [
                         InlineKeyboardButton("➕Add me to Group✅", url="https://t.me/PFM_MediaSearchBot?startgroup=true")
