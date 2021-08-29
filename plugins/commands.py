@@ -8,7 +8,7 @@ from sample_info import HELP_TEXT, MAL_HELP_TXT
 from utils import Media, get_file_details
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
-bot_logo = "https://telegra.ph/file/8662d4ba64f2b4bf136a0.jpg"
+bot_logo = "https://telegra.ph/file/c3276eacd309bf0715d3e.jpg"
 
 @Client.on_message(filters.command("start"))
 async def start(bot, cmd):
@@ -95,10 +95,10 @@ async def start(bot, cmd):
             )
         )
     else:
-        await cmd.reply_text(
-            START_MSG.format(cmd.from_user.mention),
+        await cmd.reply_photo(
+            photo=bot_logo,
+            caption=START_MSG.format(cmd.from_user.mention),
             parse_mode="Markdown",
-            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -209,7 +209,7 @@ async def bot_info(bot, message):
             InlineKeyboardButton('Back', callback_data='start')
         ]
         ]
-    await message.reply(text="<b>Developer : <a href='https://t.me/CLaY995'>CLAEY</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://t.me/Oomban_ULLATH'>Click here</a>\nUpdate Channel : <a href='https://t.me/PrimeFlixMedia_All'>👉😁😁👈</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(text="<b>Developer : <a href='https://t.me/CLaY995'>CLAEY</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://t.me/Oomban_ULLATH'>Click here</a>\nUpdate Channel : <a href='https://t.me/PrimeFlixMedia_All'>👉😁😁👈</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=False)
 
 @Client.on_message(filters.command('mal_help'))
 async def mal_help(bot, message):
@@ -218,7 +218,7 @@ async def mal_help(bot, message):
             InlineKeyboardButton('Home', callback_data='start')
         ]
         ]
-    await message.reply(MAL_HELP_TXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(MAL_HELP_TXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=False)
 
 @Client.on_message(filters.command('help'))
 async def help(bot, message):
@@ -230,4 +230,4 @@ async def help(bot, message):
             InlineKeyboardButton('Home', callback_data='start')
         ]
         ]
-    await message.reply(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=False)
