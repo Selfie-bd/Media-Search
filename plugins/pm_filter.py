@@ -56,8 +56,8 @@ async def filter(client, message):
         if files:
             btn.append(
                    [
-                       InlineKeyboardButton("🎥:мσνιєѕ⭕", url="https://t.me/joinchat/dZmnXiQ5a2ViMWZl"),
-                       InlineKeyboardButton("📽:ѕєяιєѕ⭕", url="https://t.me/joinchat/vz04fx0LgSI5MzZl")
+                       InlineKeyboardButton("🎥:MOVIES✅", url="https://t.me/joinchat/dZmnXiQ5a2ViMWZl"),
+                       InlineKeyboardButton("📽:SERIES✅", url="https://t.me/joinchat/vz04fx0LgSI5MzZl")
                    ]
                )
             for file in files:
@@ -129,8 +129,8 @@ async def group(client, message):
         if files:
             btn.append(
                    [
-                       InlineKeyboardButton("🎥:мσνιєѕ⭕", url="https://t.me/joinchat/dZmnXiQ5a2ViMWZl"),
-                       InlineKeyboardButton("📽:ѕєяιєѕ⭕", url="https://t.me/joinchat/vz04fx0LgSI5MzZl")
+                       InlineKeyboardButton("🎥:MOVIES✅", url="https://t.me/joinchat/dZmnXiQ5a2ViMWZl"),
+                       InlineKeyboardButton("📽:SERIES✅", url="https://t.me/joinchat/vz04fx0LgSI5MzZl")
                    ]
                )
             for file in files:
