@@ -110,7 +110,7 @@ async def start(bot, cmd):
                         InlineKeyboardButton("Group", url="https://t.me/PrimeFlix_Chats")
                     ],
                     [
-                        InlineKeyboardButton("Add me to Group", url="htps://t.me/PFM_MediaSearchBot?startgroup=true")
+                        InlineKeyboardButton("➕Add me to Group✅", url="https://t.me/PFM_MediaSearchBot?startgroup=true")
                     ]
                 ]
             )
