@@ -233,3 +233,25 @@ async def help(bot, message):
         ]
         ]
     await message.reply(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
+@Client.on_message(filters.command(["me"]))
+async def mera_links(bot, message):
+    buttons = [
+        [
+            InlineKeyboardButton('Movies 🎞️:', callback_data='ignore'),
+            InlineKeyboardButton('🔘 Click Here', url='https://t.me/joinchat/dZmnXiQ5a2ViMWZl')
+        ],
+        [
+            InlineKeyboardButton('Series 🎬:', callback_data='ignore'),
+            InlineKeyboardButton('🔘 Click Here', url='https://t.me/joinchat/vz04fx0LgSI5MzZl')
+        ],
+        [
+            InlineKeyboardButton('🔗 Other Links 🔗', url='https://t.me/PrimeFlixMedia_All')
+        ],
+        [
+            InlineKeyboardButton('📡sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats')
+        ]
+        ]
+    await message.reply(text='**PFM Links..👇✨. Join & Support ✨**', reply_markup=InlineKeyboardMarkup(buttons), parse_mode='markdown', disable_web_page_preview=True)
+
+
