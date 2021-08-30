@@ -259,7 +259,7 @@ async def reqformat(bot, message):
     req_txt = """
 <b>🎬 Movies/Series Request Format:
 
-•</b> <code><Movie Name> (year) + Quality</code>
+•</b> <code>'Movie Name' (year) + Quality</code>
 
 <b>👤 #Example: Avatar 2009 720p
              Inception 2010 1080p
