@@ -270,9 +270,6 @@ async def reqformat(bot, message):
 """
     buttons = [
         [
-            InlineKeyboardButton('Malayalam Translation 🌐', callback_data='mal_reqformat')
-        ],
-        [
             InlineKeyboardButton('📡sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats')
         ]
         ]
