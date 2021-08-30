@@ -254,4 +254,49 @@ async def mera_links(bot, message):
         ]
     await message.reply(text='**PFM Links..👇✨. Join & Support ✨**', reply_markup=InlineKeyboardMarkup(buttons), parse_mode='markdown', disable_web_page_preview=True)
 
+@Client.on_message(filters.command(["reqformat"]))
+async def reqformat(bot, message):
+    req_txt = """
+<b>🎬 Movies/Series Request Format:
 
+•</b> <code><Movie Name> (year) + Quality</code>
+
+<b>👤 #Example: Avatar 2009 720p
+             Inception 2010 1080p
+             Hush 2016 480p</b>
+
+<b>⚠️ While Requesting always remember to send the correct Movie/Series Name. 
+💥 #Tip: Copy-Paste the Movie Name from Google.</b>
+"""
+    buttons = [
+        [
+            InlineKeyboardButton('Malayalam Translation 🌐', callback_data='mal_reqformat')
+        ],
+        [
+            InlineKeyboardButton('📡sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats')
+        ]
+        ]
+    await message.reply(text=req_txt, reply_markup=InlineKeyboardMarkup(buttons), parse_mode="html", disable_web_page_preview=True)
+
+@Client.on_message(filters.command("mal_reqformat")
+async def mal_reqformat(bot, message):
+    mal_req_txt = """
+<b>🎬 Movies/Series Request ചെയ്യേണ്ട രീതി:
+
+•</b> <code><പടത്തിൻ്റെ പേര്> (വർഷം) + Quality</code>
+
+<b>👤 #ഉദാഹരണം: Charlie 2015 720p
+               Neram 2013 480p</b>
+
+<b>⚠️ Movie request ചെയ്യുമ്പോൾ ഇപ്പോളും ശെരിയായ പേര് തന്നെ Type ചെയ്യുക.
+💥 #Tip: Google ൽ നിന്ന് Copy-Paste ചെയ്യുക.</b>
+"""
+    buttons = [
+        [
+            InlineKeyboardButton('🔙 Back', callback_data='reqformat')
+        ],
+        [
+            InlineKeyboardButton('📡sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats')
+        ]
+        ]
+    await message.reply(text=mal_req_txt, reply_markup=InlineKeyboardMarkup(buttons), parse_mode="html", disable_web_page_preview=True)
