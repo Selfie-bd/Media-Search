@@ -8,7 +8,7 @@ from sample_info import HELP_TEXT, MAL_HELP_TXT
 from utils import Media, get_file_details
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
-bot_logo = "https://telegra.ph/file/c3276eacd309bf0715d3e.jpg"
+bot_logo = "https://telegra.ph/file/a78259e021cf8dba5335d.jpg"
 
 @Client.on_message(filters.command("start"))
 async def start(bot, cmd):
@@ -97,8 +97,9 @@ async def start(bot, cmd):
             )
         )
     else:
-        await cmd.reply_text(
-            START_MSG.format(cmd.from_user.mention),
+        await cmd.reply_photo(
+            photo=bot_logo,
+            caption=START_MSG.format(cmd.from_user.mention),
             parse_mode="html",
             reply_markup=InlineKeyboardMarkup(
                 [
