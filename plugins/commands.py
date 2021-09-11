@@ -140,7 +140,7 @@ async def channel_info(bot, message):
         else:
             text += '\n' + chat.title or chat.first_name
 
-    text += f'\n\n**Total:** {len(CHANNELS)}'
+    text += f'\n\n**🇹‌🇴‌🇹‌🇦‌🇱:** {len(CHANNELS)}'
 
     if len(text) < 4096:
         await message.reply(text)
@@ -158,7 +158,7 @@ async def total(bot, message):
     msg = await message.reply("Processing...⏳", quote=True)
     try:
         total = await Media.count_documents()
-        await msg.edit(f'📁 Total Files Saved: {total}')
+        await msg.edit(f'🇹‌🇴‌🇹‌🇦‌🇱‌ 🇫‌🇮‌🇱‌🇪‌🇸‌🗃️: {total}')
     except Exception as e:
         logger.exception('Failed to check total files')
         await msg.edit(f'Error: {e}')
