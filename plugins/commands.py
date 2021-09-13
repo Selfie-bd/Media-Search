@@ -13,7 +13,7 @@ bot_logo = "https://telegra.ph/file/a78259e021cf8dba5335d.jpg"
 @Client.on_message(filters.command("start"))
 async def start(bot, cmd):
     usr_cmdall1 = cmd.text
-    if usr_cmdall1.startswith("/start subinps"):
+    if usr_cmdall1.startswith("/start claeyz"):
         if AUTH_CHANNEL:
             invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
             try:
@@ -259,11 +259,12 @@ async def reqformat(bot, message):
     req_txt = """
 <b>🎬 Movies/Series Request Format:</b>
 
-•</b> <code>'Movie Name' (year) + Quality</code>
+•</b> <code>'Movie Name' + YEAR</code>
 
-<b>👤 #Example:</b> Avatar 2009 720p
-                Inception 2010 1080p
-                Hush 2016 480p
+<b>👤 #Example:</b> 
+Avatar 2009
+Inception 2010
+Hush 2016
 
 ⚠️ While Requesting always remember to send the correct Movie/Series Name. 
 💥 <b>#Tip</b>: Copy-Paste the Movie Name from Google.
