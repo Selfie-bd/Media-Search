@@ -257,16 +257,16 @@ async def mera_links(bot, message):
 @Client.on_message(filters.command(["reqformat"]))
 async def reqformat(bot, message):
     req_txt = """
-<b>🎬 Movies/Series Request Format:
+<b>🎬 Movies/Series Request Format:</b>
 
 •</b> <code>'Movie Name' (year) + Quality</code>
 
-<b>👤 #Example: Avatar 2009 720p
-             Inception 2010 1080p
-             Hush 2016 480p</b>
+<b>👤 #Example:</b> Avatar 2009 720p
+                Inception 2010 1080p
+                Hush 2016 480p
 
-<b>⚠️ While Requesting always remember to send the correct Movie/Series Name. 
-💥 #Tip: Copy-Paste the Movie Name from Google.</b>
+⚠️ While Requesting always remember to send the correct Movie/Series Name. 
+💥 <b>#Tip</b>: Copy-Paste the Movie Name from Google.
 """
     buttons = [
         [
