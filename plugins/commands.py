@@ -217,7 +217,8 @@ async def bot_info(bot, message):
 async def mal_help(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Home', callback_data='start')
+            InlineKeyboardButton('🏡 Home', callback_data='start'),
+            InlineKeyboardButton('👤 About', callback_data='about')
         ]
         ]
     await message.reply(MAL_HELP_TXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -229,7 +230,8 @@ async def help(bot, message):
             InlineKeyboardButton('Malayalam Translation 🌐', callback_data='mal_help')
         ],
         [
-            InlineKeyboardButton('Home', callback_data='start')
+            InlineKeyboardButton('🏡 Home', callback_data='start'),
+            InlineKeyboardButton('👤 About', callback_data='about')
         ]
         ]
     await message.reply(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
