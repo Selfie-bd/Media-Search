@@ -345,7 +345,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('Malayalam Translation 🌐', callback_data='mal_help')
                 ],
                 [
-                    InlineKeyboardButton('Home', callback_data='start')
+                    InlineKeyboardButton('🏡 Home', callback_data='start'),
+                    InlineKeyboardButton('👤 About', callback_data='about')
                 ]
                 ]
             await query.message.edit(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -353,7 +354,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "mal_help":
             buttons = [
                 [
-                    InlineKeyboardButton('Home', callback_data='start')
+                    InlineKeyboardButton('🏡 Home', callback_data='start'),
+                    InlineKeyboardButton('👤 About', callback_data='about')
                 ]
                 ]
             await query.message.edit(MAL_HELP_TXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
