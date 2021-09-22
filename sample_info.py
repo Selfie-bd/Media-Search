@@ -32,12 +32,15 @@ SHARE_BUTTON_TEXT = 'Checkout {username} for searching files'
 INVITE_MSG = 'Please join @.... to use this bot'
 
 HELP_TEXT = """
-If you want to Set me up in your Group, Just **Add me** to your Group & Make Me an **Admin**.
-I will respond to the Queries in your Group with Files 🗃️ in my Database.
+• I am usable both in **PM** & in **Groups** ✨.
 
-While Requesting for Files in the Group always remember to Type in the Exact Movie-Name (`copy_paste from Google`).
+ • In **PM** 🗣️: You can access files by just typing the 🎞️ **Movie/Series** name in my **PM** and also via **INLINE**.
 
-Use **🔍 Search Here** to search for Files 🗃️ **Inline**.
+ • In **GROUP** 🗣️: You have to Add ➕ me to a **GROUP** and make me an **ADMIN** 🤴. I will respond to the Queries Accordingly.
+
+ • **/reqformat**: Use this **COMMAND** to get the Request Format. Requests of this kind is likely to get more accurate **RESULTS** ✨.
+
+**© @PrimeFlixMedia_All 📍**
 """
 
 MAL_HELP_TXT = """
