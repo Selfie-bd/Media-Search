@@ -163,7 +163,7 @@ async def group(client, message):
                 reply_markup=InlineKeyboardMarkup(
                      [
                           [
-                               InlineKeyboardButton("Admin List 💫", callback_data="admn_list")
+                               InlineKeyboardButton("Admin List 💫", url="https://telegra.ph/CLÆＹ-09-23")
                           ]
                      ]
                 ),
