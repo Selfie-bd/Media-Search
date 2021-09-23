@@ -54,18 +54,7 @@ async def filter(client, message):
         up_search = search.upper()
         files = await get_filter_results(query=search)
         if files:
-            btn.append(
-                   [
-                       InlineKeyboardButton("🎥:MOVIES✅", url="https://t.me/joinchat/dZmnXiQ5a2ViMWZl"),
-                       InlineKeyboardButton("📽:SERIES✅", url="https://t.me/joinchat/vz04fx0LgSI5MzZl")
-                   ]
-               )
-            for file in files:
-                file_id = file.file_id
-                filename = f"💽:[{get_size(file.file_size)}]📂{file.file_name}"
-                btn.append(
-                    [InlineKeyboardButton(text=f"{filename}",callback_data=f"subinps#{file_id}")]
-                    )
+            await client.send_message("This Function is Not Available. Request for Movie @PrimeFlix_Chats")
         else:
             await client.send_sticker(chat_id=message.from_user.id, sticker='CAACAgUAAxkBAAEMgsphJ0g2IKq6G5qD6QK_sKSRFFrhmgACwQMAAqrvQVWE73GkUNZ4mSAE')
             return
