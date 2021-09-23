@@ -68,7 +68,6 @@ async def filter(client, message):
             )
         else:
             await message.reply_text(
-                chat_id=message.from_user.id,
                 text="▫️ <b>Oops❗ the Movie that you Requested for is not in my Database 🌩️.</b>\n\n📍 <b>Ask the Admins to Upload the Files to my DB 🗃️.</b>",
                 parse_mode="html",
                 reply_markup=InlineKeyboardMarkup(
