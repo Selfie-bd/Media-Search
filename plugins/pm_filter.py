@@ -1,5 +1,5 @@
 #Edited by @CLaY995
-from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, START_MSG
+from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, START_MSG, ADMINS
 from sample_info import HELP_TEXT, MAL_HELP_TXT
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
@@ -66,8 +66,12 @@ async def filter(client, message):
                      ]
                 )
             )
-        else:
-            await message.reply_text(
+            return
+        if ADMINS:
+            return
+        if not ADMINS:
+            try:
+             await message.reply_text(
                 text="▫️ <b>Oops❗ the Movie that you Requested for is not in my Database 🌩️.</b>\n\n📍 <b>Ask the Admins to Upload the Files to my DB 🗃️.</b>",
                 parse_mode="html",
                 reply_markup=InlineKeyboardMarkup(
@@ -79,7 +83,6 @@ async def filter(client, message):
                 ),
                 reply_to_message_id=message.message_id
             )
-            return
 
         if not btn:
             return
