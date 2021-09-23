@@ -67,7 +67,7 @@ async def filter(client, message):
                 )
             )
         else:
-            await client.send_message(
+            await message.reply_text(
                 chat_id=message.from_user.id,
                 text="▫️ <b>Oops❗ the Movie that you Requested for is not in my Database 🌩️.</b>\n\n📍 <b>Ask the Admins to Upload the Files to my DB 🗃️.</b>",
                 parse_mode="html",
@@ -77,7 +77,8 @@ async def filter(client, message):
                              InlineKeyboardButton("Request Here ♻️", url="https://t.me/PrimeFlix_Chats")
                          ]
                      ]
-                )
+                ),
+                reply_to_message_id=message.message_id
             )
             return
 
