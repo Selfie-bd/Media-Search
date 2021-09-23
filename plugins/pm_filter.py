@@ -158,7 +158,7 @@ async def group(client, message):
                 )
         else:
             await message.reply_text(
-                text="▫️ <b>Oops❗ the Movie that you Requested for is not in my Database 🌩️.</b>\n\n📍 <b>Ask the Admins to Upload the Files to my DB 🗃️.</b>",
+                text="▫️ <b>Oops❗ the Movie that you Requested for is not in my Database 🌩️.</b>\n\n📍 <b>Make sure that you have typed the correct Movie name. If you are not sure type /reqformat 😝</b>\n\n📍 <b>Ask the Admins to Upload the Files to my DB 🗃️.</b>",
                 parse_mode="html",
                 reply_markup=InlineKeyboardMarkup(
                      [
