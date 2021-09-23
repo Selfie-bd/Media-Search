@@ -67,7 +67,7 @@ async def filter(client, message):
                 )
             )
         else:
-            await client.reply_text(
+            await client.reply(
                 chat_id=message.from_user.id,
                 text="▫️ <b>Oops❗ the Movie that you Requested for is not in my Database 🌩️.</b>\n\n📍 <b>Ask the Admins to Upload the Files to my DB 🗃️.</b>",
                 parse_mode="html",
@@ -157,7 +157,7 @@ async def group(client, message):
                     [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{nyva}?start=subinps_-_-_-_{file_id}")]
                 )
         else:
-            await client.reply_text(
+            await client.reply(
                 chat_id=message.from_user.id,
                 text="▫️ <b>Oops❗ the Movie that you Requested for is not in my Database 🌩️.</b>\n\n📍 <b>Ask the Admins to Upload the Files to my DB 🗃️.</b>",
                 parse_mode="html",
