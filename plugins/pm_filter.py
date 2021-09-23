@@ -157,8 +157,7 @@ async def group(client, message):
                     [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{nyva}?start=subinps_-_-_-_{file_id}")]
                 )
         else:
-            await client.send_message(
-                chat_id=message.from_user.id,
+            await message.reply_text(
                 text="▫️ <b>Oops❗ the Movie that you Requested for is not in my Database 🌩️.</b>\n\n📍 <b>Ask the Admins to Upload the Files to my DB 🗃️.</b>",
                 parse_mode="html",
                 reply_markup=InlineKeyboardMarkup(
@@ -167,7 +166,8 @@ async def group(client, message):
                                InlineKeyboardButton("Admin List 💫", callback_data="admn_list")
                           ]
                      ]
-                )
+                ),
+                reply_to_message_id=message.message_id,
             )
         if not btn:
             return
