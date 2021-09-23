@@ -449,7 +449,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer()
     else:
         await query.answer("😑This is NOT for YoU❗, Search Up on ur Own",show_alert=True)
-    return
+        return
 
         elif query.data == "admn_list":
             await query.answer()
