@@ -447,7 +447,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "pages":
             await query.answer()
-    elif:
+    else:
         await query.answer("😑This is NOT for YoU❗, Search Up on ur Own",show_alert=True)
+    return
+
+        elif query.data == "admn_list":
+            await query.answer()
     else:
         await query.answer("Tag any one of these ADMINS:\n\n@CLaY995\n@nakul006\n@N_i_8_m_a_r_e\n@RFt_CyberPro", show_alert=True)
+  
