@@ -66,12 +66,8 @@ async def filter(client, message):
                      ]
                 )
             )
-            return
-        if ADMINS:
-            return
-        if not ADMINS:
-            try:
-             await message.reply_text(
+        else:
+            await message.reply_text(
                 text="▫️ <b>Oops❗ the Movie that you Requested for is not in my Database 🌩️.</b>\n\n📍 <b>Ask the Admins to Upload the Files to my DB 🗃️.</b>",
                 parse_mode="html",
                 reply_markup=InlineKeyboardMarkup(
@@ -82,8 +78,7 @@ async def filter(client, message):
                      ]
                 ),
                 reply_to_message_id=message.message_id
-             )
-
+            )
         if not btn:
             return
 
