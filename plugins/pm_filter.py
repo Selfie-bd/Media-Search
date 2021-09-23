@@ -67,7 +67,18 @@ async def filter(client, message):
                 )
             )
         else:
-            await client.send_sticker(chat_id=message.from_user.id, sticker='CAACAgUAAxkBAAEMgsphJ0g2IKq6G5qD6QK_sKSRFFrhmgACwQMAAqrvQVWE73GkUNZ4mSAE')
+            await client.reply_text(
+                chat_id=message.from_user.id,
+                text="▫️ <b>Oops❗ the Movie that you Requested for is not in my Database 🌩️.</b>\n\n📍 <b>Ask the Admins to Upload the Files to my DB 🗃️.</b>",
+                parse_mode="html",
+                reply_markup=InlineKeyboardMarkup(
+                     [
+                         [
+                             InlineKeyboardButton("Request Here ♻️", url="https://t.me/PrimeFlix_Chats")
+                         ]
+                     ]
+                )
+            )
             return
 
         if not btn:
@@ -146,7 +157,18 @@ async def group(client, message):
                     [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{nyva}?start=subinps_-_-_-_{file_id}")]
                 )
         else:
-            return
+            await client.reply_text(
+                chat_id=message.from_user.id,
+                text="▫️ <b>Oops❗ the Movie that you Requested for is not in my Database 🌩️.</b>\n\n📍 <b>Ask the Admins to Upload the Files to my DB 🗃️.</b>",
+                parse_mode="html",
+                reply_markup=InlineKeyboardMarkup(
+                     [
+                          [
+                               InlineKeyboardButton("Admin List 💫", callback_data="admn_list")
+                          ]
+                     ]
+                )
+            )
         if not btn:
             return
 
@@ -425,5 +447,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         elif query.data == "pages":
             await query.answer()
-    else:
+    elif:
         await query.answer("😑This is NOT for YoU❗, Search Up on ur Own",show_alert=True)
+    else:
+        await query.answer("Tag any one of these ADMINS:\n\n@CLaY995\n@nakul006\n@N_i_8_m_a_r_e\n@RFt_CyberPro", show_alert=True)
