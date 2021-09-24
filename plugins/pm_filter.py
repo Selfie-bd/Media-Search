@@ -54,9 +54,8 @@ async def filter(client, message):
         up_search = search.upper()
         files = await get_filter_results(query=search)
         if files:
-            await client.send_message(
-                chat_id=message.from_user.id, 
-                text="<b>📍 #UserNotice:</b>\n\n▫️ <b>Request for Movies in the Group Link given below.</b>\n\n▫️ <b>The PM Request Function is Taken down. Sorry for the inconvenience 🙂</b>", 
+            await message.reply_text( 
+                text="<b>📍 #UserNotice:</b>\n\n▫️ <b>Request for Movies in the Group Link given below.</b>\n\n▫️ <b>The PM Request Function is Taken down. Sorry for the inconvenience 🙂</b>\n\n📍 <b>INLINE MODE</b> is still Available 💥.", 
                 parse_mode="html",
                 reply_markup=InlineKeyboardMarkup(
                      [
@@ -64,7 +63,8 @@ async def filter(client, message):
                              InlineKeyboardButton("Request Group ♻️", url="https://t.me/PrimeFlix_Chats")
                          ]
                      ]
-                )
+                ),
+                reply_to_message_id=message.message_id
             )
         else:
             await message.reply_text(
