@@ -54,18 +54,18 @@ async def filter(client, message):
         up_search = search.upper()
         files = await get_filter_results(query=search)
         if files:
-            await message.reply_text( 
-                text="<b>📍 #UserNotice:</b>\n\n▫️ <b>Request for Movies in the Group Link given below.</b>\n\n▫️ <b>The PM Request Function is Taken down. Sorry for the inconvenience 🙂</b>\n\n📍 <b>INLINE MODE</b> is still Available 💥.", 
-                parse_mode="html",
-                reply_markup=InlineKeyboardMarkup(
-                     [
-                         [
-                             InlineKeyboardButton("Request Group ♻️", url="https://t.me/PrimeFlix_Chats")
-                         ]
-                     ]
-                ),
-                reply_to_message_id=message.message_id
-            )
+            btn.append(
+                   [
+                       InlineKeyboardButton("🎥:мσνιєѕ⭕", url="https://t.me/joinchat/dZmnXiQ5a2ViMWZl"),
+                       InlineKeyboardButton("📽:ѕєяιєѕ⭕", url="https://t.me/joinchat/vz04fx0LgSI5MzZl")
+                   ]
+               )
+            for file in files:
+                file_id = file.file_id
+                filename = f"💽:[{get_size(file.file_size)}]📂{file.file_name}"
+                btn.append(
+                    [InlineKeyboardButton(text=f"{filename}",callback_data=f"subinps#{file_id}")]
+                    )
         else:
             await message.reply_text(
                 text="▫️ <b>Oops❗ the Movie that you Requested for is not in my Database 🌩️.</b>\n\n📍 <b>Ask the Admins to Upload the Files to my DB 🗃️.</b>",
