@@ -17,6 +17,10 @@
     "website": "https://github.com/CLaY9950/Media-Search-bot",
     "repository": "https://github.com/CLaY9950/Media-Search-bot",
     "env": {
+        "WEBHOOK": {
+            "description": "No need to change this field",
+            "value": "ANYTHING"
+        },
         "BOT_TOKEN": {
             "description": "Your bot token.",
             "value": ""
@@ -83,6 +87,16 @@
         "COLLECTION_NAME": {
             "description": "Name of the collections. Defaults to Telegram_files. If you are using the same database, then use different collection name for each bot",
             "value": "Telegram_files",
+            "required": false
+        },
+        "SAVE_USER": {
+            "description": "To save user details",
+            "value": "no",
+            "required": false
+        },
+        "HEROKU_API_KEY": {
+            "description": "To check the dyno stats",
+            "value": "None",
             "required": false
         },
         "CACHE_TIME": {
