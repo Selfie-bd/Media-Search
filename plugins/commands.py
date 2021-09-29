@@ -1,12 +1,26 @@
 # Code Edited by @CLaY995
 import os
+import shutil
+import time
+import json
+import math
+import requests
+import heroku3
 import logging
+if bool(os.environ.get("WEBHOOK", False)):
+    from info import SAVE_USER, HEROKU_API_KEY, BOT_START_TIME
+else:
+    return
+
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from info import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
 from sample_info import HELP_TEXT, MAL_HELP_TXT
 from utils import Media, get_file_details
 from pyrogram.errors import UserNotParticipant
+from database.filters_mdb import filter_stats
+from database.users_mdb import add_user, find_user, all_users
+from plugin.helpers import humanbytes
 logger = logging.getLogger(__name__)
 bot_logo = "https://telegra.ph/file/a78259e021cf8dba5335d.jpg"
 
@@ -278,3 +292,95 @@ Hush 2016
         ]
     await message.reply(text=req_txt, reply_markup=InlineKeyboardMarkup(buttons), parse_mode="html", disable_web_page_preview=True)
 
+
+@Client.on_message((filters.private | filters.group) & filters.command('status'))
+async def bot_status(client,message):
+    if str(message.from_user.id) not in ADMINS:
+        return
+
+    chats, filters = await filter_stats()
+
+    if SAVE_USER == "yes":
+        users = await all_users()
+        userstats = f"> __**{users} users have interacted with your bot!**__\n\n"
+    else:
+        userstats = ""
+
+    if HEROKU_API_KEY:
+        try:
+            server = heroku3.from_key(HEROKU_API_KEY)
+
+            user_agent = (
+                'Mozilla/5.0 (Linux; Android 10; SM-G975F) '
+                'AppleWebKit/537.36 (KHTML, like Gecko) '
+                'Chrome/80.0.3987.149 Mobile Safari/537.36'
+            )
+            accountid = server.account().id
+            headers = {
+            'User-Agent': user_agent,
+            'Authorization': f'Bearer {HEROKU_API_KEY}',
+            'Accept': 'application/vnd.heroku+json; version=3.account-quotas',
+            }
+
+            path = "/accounts/" + accountid + "/actions/get-quota"
+
+            request = requests.get("https://api.heroku.com" + path, headers=headers)
+
+            if request.status_code == 200:
+                result = request.json()
+
+                total_quota = result['account_quota']
+                quota_used = result['quota_used']
+
+                quota_left = total_quota - quota_used
+                
+                total = math.floor(total_quota/3600)
+                used = math.floor(quota_used/3600)
+                hours = math.floor(quota_left/3600)
+                minutes = math.floor(quota_left/60 % 60)
+                days = math.floor(hours/24)
+
+                usedperc = math.floor(quota_used / total_quota * 100)
+                leftperc = math.floor(quota_left / total_quota * 100)
+
+                quota_details = f"""
+**Heroku Account Status**
+> __You have **{total} hours** of free dyno quota available each month.__
+> __Dyno hours used this month__ ;
+        - **{used} hours**  ( {usedperc}% )
+> __Dyno hours remaining this month__ ;
+        - **{hours} hours**  ( {leftperc}% )
+        - **Approximately {days} days!**
+"""
+            else:
+                quota_details = ""
+        except:
+            print("Check your Heroku API key")
+            quota_details = ""
+    else:
+        quota_details = ""
+
+    uptime = time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - BOT_START_TIME))
+
+    try:
+        t, u, f = shutil.disk_usage(".")
+        total = humanbytes(t)
+        used = humanbytes(u)
+        free = humanbytes(f)
+
+        disk = "\n**Disk Details**\n\n" \
+            f"> USED  :  {used} / {total}\n" \
+            f"> FREE  :  {free}\n\n"
+    except:
+        disk = ""
+
+    await message.reply_text(
+        "**Current status of your bot!**\n\n"
+        f"> __**{filters}** filters across **{chats}** chats__\n\n"
+        f"{userstats}"
+        f"> __BOT Uptime__ : **{uptime}**\n\n"
+        f"{quota_details}"
+        f"{disk}",
+        quote=True,
+        parse_mode="md"
+    )
