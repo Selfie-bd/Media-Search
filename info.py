@@ -1,4 +1,6 @@
 import re
+import os
+import time
 from os import environ
 
 id_pattern = re.compile(r'^.\d+$')
@@ -22,10 +24,15 @@ auth_channel = environ.get('AUTH_CHANNEL')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else auth_channel
 AUTH_GROUPS = [int(admin) for admin in environ.get("AUTH_GROUPS", "").split()]
 
+
+
 # MongoDB information
 DATABASE_URI = environ['DATABASE_URI']
 DATABASE_NAME = environ['DATABASE_NAME']
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
+SAVE_USER = os.environ.get("SAVE_USER". "no").lower()
+HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "")
+
 
 # Messages
 default_start_msg = """
@@ -44,3 +51,5 @@ if OMDB_API_KEY.strip() == "":
     API_KEY=None
 else:
     API_KEY=OMDB_API_KEY
+
+BOT_START_TIME = time.time()
