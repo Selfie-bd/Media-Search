@@ -2,7 +2,7 @@ import os
 import pymongo
 
 if bool(os.environ.get("WEBHOOK", False)):
-    from info import Config
+    from info import DATABASE_URI, DATABASE_NAME
 else:
     return
  
