@@ -293,7 +293,7 @@ Hush 2016
     await message.reply(text=req_txt, reply_markup=InlineKeyboardMarkup(buttons), parse_mode="html", disable_web_page_preview=True)
 
 
-@Client.on_message((filters.private | filters.group) & filters.command(['status']) & filter.user(ADMINS))
+@Client.on_message((filters.private | filters.group) & filters.command(['status']) & filters.user(ADMINS))
 async def bot_status(client,message):
     if str(message.from_user.id) not in ADMINS:
         return
