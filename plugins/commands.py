@@ -10,7 +10,7 @@ import logging
 if bool(os.environ.get("WEBHOOK", False)):
     from info import SAVE_USER, HEROKU_API_KEY, BOT_START_TIME
 else:
-    from config import Config
+    pass
 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
