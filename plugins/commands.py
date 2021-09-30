@@ -252,7 +252,7 @@ async def manual_help(bot, message):
 async def help(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Manual Filtering 🌐', callback_data='mal_help')
+            InlineKeyboardButton('Manual Filtering 🌐', callback_data='manual_help')
         ],
         [
             InlineKeyboardButton('🏡 Home', callback_data='start'),
