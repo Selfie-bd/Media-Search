@@ -33,6 +33,15 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 SAVE_USER = os.environ.get("SAVE_USER", "no").lower()
 HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "")
 DATABASE_NAME_2 = str(os.environ.get("DATABASE_NAME", "Cluster0"))
+AUTH_USERS_2 = set(str(x) for x in os.environ.get("AUTH_USERS", "").split())
+
+# Manual Filter Commands 😁
+ADD_FILTER_CMD = os.environ.get("ADD_FILTER_CMD", "add")
+DELETE_FILTER_CMD = os.environ.get("DELETE_FILTER_CMDD", "del")
+DELETE_ALL_CMD = os.environ.get("DELETE_ALL_CMDD", "delall")
+CONNECT_COMMAND = os.environ.get("CONNECT_COMMANDD", "connect")
+DISCONNECT_COMMAND = os.environ.get("DISCONNECT_COMMANDD", "disconnect")
+
 
 # Messages
 default_start_msg = """
