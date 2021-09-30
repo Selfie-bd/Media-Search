@@ -313,7 +313,7 @@ async def bot_status(client,message):
 
     if SAVE_USER == "yes":
         users = await all_users()
-        userstats = f"> __**{users} users have interacted with your bot!**__\n\n"
+        userstats = f"⚙️ **{users} users have started Me 😎!**\n\n"
     else:
         userstats = ""
 
@@ -356,10 +356,10 @@ async def bot_status(client,message):
 
                 quota_details = f"""
 **Heroku Account Status**
-> __You have **{total} hours** of free dyno quota available each month.__
-> __Dyno hours used this month__ ;
+📍 You have **{total} hours 🕰️** of free dyno quota available each month.
+♻️ Dyno hours used this month:
         - **{used} hours**  ( {usedperc}% )
-> __Dyno hours remaining this month__ ;
+♻️ Dyno hours remaining this month:
         - **{hours} hours**  ( {leftperc}% )
         - **Approximately {days} days!**
 """
@@ -386,10 +386,10 @@ async def bot_status(client,message):
         disk = ""
 
     await message.reply_text(
-        "**Current status of your bot!**\n\n"
-        f"> __**{filters}** filters across **{chats}** chats__\n\n"
+        "**🦾 Current status of your bot!**\n\n"
+        f"♨️**{filters}** filters across **{chats}** chats\n\n"
         f"{userstats}"
-        f"> __BOT Uptime__ : **{uptime}**\n\n"
+        f"🕰️ BOT Uptime: **{uptime}**\n\n"
         f"{quota_details}"
         f"{disk}",
         quote=True,
@@ -450,7 +450,7 @@ async def showinfo(client, message):
         user_name = "none"
 
     await message.reply_text(
-        f"<b>Name</b> : {name}\n\n"
+        f"👤 <b>Name</b> : {name}\n\n"
         f"<b>User ID</b> : <code>{id}</code>\n\n"
         f"<b>Username</b> : {user_name}\n\n"
         f"<b>Permanant USER link</b> : <a href='tg://user?id={id}'>Click here!</a>\n\n"
