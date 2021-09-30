@@ -15,7 +15,7 @@ else:
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from info import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
-from sample_info import HELP_TEXT, MAL_HELP_TXT
+from sample_info import HELP_TEXT, MAL_HELP_TXT, HELP_MSG
 from utils import Media, get_file_details
 from pyrogram.errors import UserNotParticipant
 from database.filters_mdb import filter_stats
@@ -118,10 +118,9 @@ async def start(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("My CreatoR🧑‍💻", url="https://t.me/CLaY995")
+                        InlineKeyboardButton("♨️ My Creator ♨️", url="https://t.me/CLaY995")
                     ],
                     [
-                        InlineKeyboardButton("🔎 Search Here", switch_inline_query_current_chat=''),
                         InlineKeyboardButton("🔗 Our-LinkZ", url="https://t.me/PrimeFlixMedia_All")
                     ],
                     [
@@ -236,21 +235,24 @@ async def bot_info(bot, message):
         ]
     await message.reply(text="<b>Developer : <a href='https://t.me/CLaY995'>CLAEY</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://t.me/Oomban_ULLATH'>Click here</a>\nUpdate Channel : <a href='https://t.me/PrimeFlixMedia_All'>👉😁😁👈</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
-@Client.on_message(filters.command('mal_help'))
-async def mal_help(bot, message):
+@Client.on_message(filters.command("manual_help"))
+async def manual_help(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('🏡 Home', callback_data='start'),
-            InlineKeyboardButton('👤 About', callback_data='about')
+            InlineKeyboardButton("Auto-Filter 🦾", callback_data="help")
+        ],
+        [
+            InlineKeyboardButton("Home 🏘️", callback_data="start"),
+            InlineKeyboardButton("About 👤", callback_data="about")
         ]
         ]
-    await message.reply(MAL_HELP_TXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(HELP_MSG, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 @Client.on_message(filters.command('help'))
 async def help(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Malayalam Translation 🌐', callback_data='mal_help')
+            InlineKeyboardButton('Manual Filtering 🌐', callback_data='mal_help')
         ],
         [
             InlineKeyboardButton('🏡 Home', callback_data='start'),
