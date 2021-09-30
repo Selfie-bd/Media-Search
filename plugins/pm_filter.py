@@ -487,7 +487,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
             st = await client.get_chat_member(grp_id, userid)
             if (st.status == "creator") or (str(userid) in AUTH_USERS_2):    
-            await del_all(query.message, grp_id, title)
+                await del_all(query.message, grp_id, title)
             else:
                 await query.answer("You need to be Group Owner or an Auth User to do that!",show_alert=True)
     
