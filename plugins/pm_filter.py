@@ -7,9 +7,9 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQ
 from pyrogram import Client, filters
 
 if bool(os.environ.get("WEBHOOK", False)):
-    from info import ADMIMS
+    from info import AUTH_USERS_2
 else:
-    from info import ADMINS
+    from info import AUTH_USERS_2
 import re
 from pyrogram.errors import UserNotParticipant
 from utils import get_filter_results, get_file_details, is_subscribed, get_poster
@@ -486,7 +486,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 return
 
             st = await client.get_chat_member(grp_id, userid)
-            if (st.status == "creator") or (str(userid) in Config.AUTH_USERS):    
+            if (st.status == "creator") or (str(userid) in AUTH_USERS_2):    
             await del_all(query.message, grp_id, title)
             else:
                 await query.answer("You need to be Group Owner or an Auth User to do that!",show_alert=True)
@@ -502,7 +502,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             elif (chat_type == "group") or (chat_type == "supergroup"):
                 grp_id = query.message.chat.id
                 st = await client.get_chat_member(grp_id, userid)
-                if (st.status == "creator") or (str(userid) in Config.AUTH_USERS):
+                if (st.status == "creator") or (str(userid) in AUTH_USERS_2):
                     await query.message.delete()
                     try:
                         await query.message.reply_to_message.delete()
