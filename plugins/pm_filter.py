@@ -2,7 +2,7 @@
 import os
 import ast
 from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, START_MSG, ADMINS
-from sample_info import HELP_TEXT, MAL_HELP_TXT
+from sample_info import HELP_TEXT, MAL_HELP_TXT, HELP_MSG
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
 
@@ -337,10 +337,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "start":
             buttons = [
                 [
-                    InlineKeyboardButton("My-CreatoR🧑‍💻", url="https://t.me/CLaY995")
+                    InlineKeyboardButton("♨️ My Creator ♨️", url="https://t.me/CLaY995")
                 ],
                 [
-                    InlineKeyboardButton("🔎 Search Here", switch_inline_query_current_chat=''),
                     InlineKeyboardButton("🔗 Our-LinkZ", url="https://t.me/PrimeFlixMedia_All")
                 ],
                 [
@@ -368,7 +367,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "help":
             buttons = [
                 [
-                    InlineKeyboardButton('Malayalam Translation 🌐', callback_data='mal_help')
+                    InlineKeyboardButton('Manual Filter 🦾', callback_data='manual_help')
                 ],
                 [
                     InlineKeyboardButton('🏡 Home', callback_data='start'),
@@ -377,14 +376,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ]
             await query.message.edit(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
             
-        elif query.data == "mal_help":
+        elif query.data == "manual_help":
             buttons = [
+                [
+                    InlineKeyboardButton("Auto Filter 🦾", callback_data="help")
+                ],
                 [
                     InlineKeyboardButton('🏡 Home', callback_data='start'),
                     InlineKeyboardButton('👤 About', callback_data='about')
                 ]
                 ]
-            await query.message.edit(MAL_HELP_TXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(HELP_MSG, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data.startswith("subinps"):
             ident, file_id = query.data.split("#")
