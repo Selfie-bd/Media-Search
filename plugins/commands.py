@@ -304,7 +304,7 @@ Hush 2016
 
 @Client.on_message((filters.private | filters.group) & filters.command('status'))
 async def bot_status(client,message):
-    if str(message.from_user.id) not in ADMINS:
+    if str(message.from_user.id) not in AUTH_USERS_2:
         return
 
 
