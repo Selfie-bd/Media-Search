@@ -298,7 +298,6 @@ async def bot_status(client,message):
     if str(message.from_user.id) not in ADMINS:
         return
 
-    chats, filters = await filter_stats()
 
     if SAVE_USER == "yes":
         users = await all_users()
