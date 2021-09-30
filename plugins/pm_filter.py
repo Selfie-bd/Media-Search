@@ -1,4 +1,6 @@
 #Edited by @CLaY995
+import os
+import ast
 from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, START_MSG, ADMINS
 from sample_info import HELP_TEXT, MAL_HELP_TXT
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
@@ -6,6 +8,16 @@ from pyrogram import Client, filters
 import re
 from pyrogram.errors import UserNotParticipant
 from utils import get_filter_results, get_file_details, is_subscribed, get_poster
+from database.connections_mdb import(
+    all_connections,
+    active_connection,
+    if_active,
+    delete_connection,
+    make_active,
+    make_inactive
+)
+from database.filters_mdb import del_all, find_filter
+
 BUTTONS = {}
 BOT = {}
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
