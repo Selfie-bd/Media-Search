@@ -1,9 +1,9 @@
 import os
 
 if bool(os.environ.get("WEBHOOK", False)):
-    from info CONNECT_COMMAND, DISCONNECT_COMMAND, ADMINS
+    from info import CONNECT_COMMAND, DISCONNECT_COMMAND, AUTH_USERS_2
 else:
-    from info CONNECT_COMMAND, DISCONNECT_COMMAND, ADMINS
+    from info import CONNECT_COMMAND, DISCONNECT_COMMAND, AUTH_USERS_2
 
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -34,7 +34,7 @@ async def addconnection(client,message):
 
     try:
         st = await client.get_chat_member(group_id, userid)
-        if (st.status == "administrator") or (st.status == "creator") or (str(userid) in ADMINS):
+        if (st.status == "administrator") or (st.status == "creator") or (str(userid) in AUTH_USERS_2):
             pass
         else:
             await message.reply_text("You should be an admin in Given group!", quote=True)
@@ -94,7 +94,7 @@ async def deleteconnection(client,message):
         group_id = message.chat.id
 
         st = await client.get_chat_member(group_id, userid)
-        if not ((st.status == "administrator") or (st.status == "creator") or (str(userid) in ADMINS)):
+        if not ((st.status == "administrator") or (st.status == "creator") or (str(userid) in AUTH_USERS_2)):
             return
 
         delcon = await delete_connection(str(userid), str(group_id))
