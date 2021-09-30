@@ -51,3 +51,25 @@ MAL_HELP_TXT = """
  
 ഫയലുകൾ തിരയാൻ **🔍 Search Here** എന്ന **OPTION** ഉപയോഗിക്കുക.
 """
+
+HELP_MSG = """
+•Add ~ мє αѕ αη 𝗔𝗗𝗠𝗜𝗡 & ѕтαят Filtering..😉
+𝗕𝗔𝗦𝗜𝗖 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦:
+/start - ᴄʜᴇᴄᴋ ɪғ ɪ'ᴍ ᴀʟɪᴠᴇ!!
+/help - ᴄᴏᴍᴍᴀɴᴅ ʜᴇʟᴘ!
+/about - ᴍʏ ᴅᴇᴛᴀɪʟs
+𝗙𝗜𝗟𝗧𝗘𝗥 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦:
+•/add name reply -  Add filter for name
+•/del name -  Delete filter
+•/delall -  Delete entire filters (Group Owner Only!)
+•/viewfilters -  List all filters in chat
+<b𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗜𝗢𝗡 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦:</b>
+<code>/connect groupid</code>  -  Connect your group to my PM. You can also simply use,
+<code>/connect</code> in groups.
+<code>/connections</code>  -  Manage your connections.
+<b>𝗘𝗫𝗧𝗥𝗔𝗦:</b>
+/status  -  Shows current status of your bot (Auth User Only)
+/id  -  Shows ID information
+/info userid -  Shows User Information. Use <code>/info</code> as reply to some message for their details!
+♻🄿🄾🅆🄴🅁🄴🄳 🄱🅈: <b>@PrimeFlixMedia_All</b>
+"""
