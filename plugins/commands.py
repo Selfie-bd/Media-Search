@@ -309,6 +309,7 @@ async def bot_status(client,message):
     if str(message.from_user.id) not in AUTH_USERS_2:
         return
 
+    chats, filters = await filter_stats()
 
     if SAVE_USER == "yes":
         users = await all_users()
@@ -386,6 +387,8 @@ async def bot_status(client,message):
 
     await message.reply_text(
         "**Current status of your bot!**\n\n"
+        f"> __**{filters}** filters across **{chats}** chats__\n\n"
+        f"{userstats}"
         f"> __BOT Uptime__ : **{uptime}**\n\n"
         f"{quota_details}"
         f"{disk}",
