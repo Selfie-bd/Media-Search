@@ -8,9 +8,9 @@ import requests
 import heroku3
 import logging
 if bool(os.environ.get("WEBHOOK", False)):
-    from info import SAVE_USER, HEROKU_API_KEY, BOT_START_TIME
+    from info import SAVE_USER, HEROKU_API_KEY, BOT_START_TIME, AUTH_USERS_2
 else:
-    from info import SAVE_USER, HEROKU_API_KEY, BOT_START_TIME
+    from info import SAVE_USER, HEROKU_API_KEY, BOT_START_TIME, AUTH_USERS_2
 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
