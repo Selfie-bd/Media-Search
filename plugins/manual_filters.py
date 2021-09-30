@@ -7,9 +7,9 @@ from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 if bool(os.environ.get("WEBHOOK", False)):
-    from info import SAVE_USER, ADD_FILTER_CMD, ADMINS, DELETE_FILTER_CMD, DELETE_ALL_CMD
+    from info import SAVE_USER, ADD_FILTER_CMD, AUTH_USERS_2, DELETE_FILTER_CMD, DELETE_ALL_CMD
 else:
-    from info import SAVE_USER, ADD_FILTER_CMD, ADMINS, DELETE_FILTER_CMD, DELETE_ALL_CMD
+    from info import SAVE_USER, ADD_FILTER_CMD, AUTH_USERS_2, DELETE_FILTER_CMD, DELETE_ALL_CMD
 
 
 from database.filters_mdb import(
@@ -56,7 +56,7 @@ async def addfilter(client, message):
         return
 
     st = await client.get_chat_member(grp_id, userid)
-    if not ((st.status == "administrator") or (st.status == "creator") or (str(userid) in ADMINS)):
+    if not ((st.status == "administrator") or (st.status == "creator") or (str(userid) in AUTH_USERS_2)):
         return
         
 
@@ -203,7 +203,7 @@ async def get_all(client, message):
         return
 
     st = await client.get_chat_member(grp_id, userid)
-    if not ((st.status == "administrator") or (st.status == "creator") or (str(userid) in ADMINS)):
+    if not ((st.status == "administrator") or (st.status == "creator") or (str(userid) in AUTH_USERS_2)):
         return
 
     texts = await get_filters(grp_id)
@@ -259,7 +259,7 @@ async def deletefilter(client, message):
         return
 
     st = await client.get_chat_member(grp_id, userid)
-    if not ((st.status == "administrator") or (st.status == "creator") or (str(userid) in Config.AUTH_USERS)):
+    if not ((st.status == "administrator") or (st.status == "creator") or (str(userid) in AUTH_USERS_2)):
         return
 
     try:
@@ -305,7 +305,7 @@ async def delallconfirm(client, message):
         return
 
     st = await client.get_chat_member(grp_id, userid)
-    if (st.status == "creator") or (str(userid) in ADMINS):
+    if (st.status == "creator") or (str(userid) in AUTH_USERS_2):
         await message.reply_text(
             f"This will delete all filters from '{title}'.\nDo you want to continue??",
             reply_markup=InlineKeyboardMarkup([
