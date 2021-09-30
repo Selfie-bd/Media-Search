@@ -32,7 +32,7 @@ DATABASE_NAME = environ['DATABASE_NAME']
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 SAVE_USER = os.environ.get("SAVE_USER", "no").lower()
 HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "")
-
+DATABASE_NAME_2 = str(os.environ.get("DATABASE_NAME", "Cluster0"))
 
 # Messages
 default_start_msg = """
