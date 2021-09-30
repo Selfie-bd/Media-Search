@@ -134,7 +134,16 @@ async def start(bot, cmd):
                 ]
             )
         )
-
+        if SAVE_USER == "yes":
+            try:
+                await add_user(
+                    str(message.from_user.id),
+                    str(message.from_user.username),
+                    str(message.from_user.first_name + " " + (message.from_user.last_name or "")),
+                    str(message.from_user.dc_id)
+                )
+            except:
+                pass
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
