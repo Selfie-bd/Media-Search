@@ -5,6 +5,11 @@ from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GR
 from sample_info import HELP_TEXT, MAL_HELP_TXT
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
+
+if bool(os.environ.get("WEBHOOK", False)):
+    from info import ADMIMS
+else:
+    from info import ADMINS
 import re
 from pyrogram.errors import UserNotParticipant
 from utils import get_filter_results, get_file_details, is_subscribed, get_poster
