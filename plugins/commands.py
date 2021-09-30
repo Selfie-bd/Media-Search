@@ -376,7 +376,6 @@ async def bot_status(client,message):
 
     await message.reply_text(
         "**Current status of your bot!**\n\n"
-        f"{userstats}"
         f"> __BOT Uptime__ : **{uptime}**\n\n"
         f"{quota_details}"
         f"{disk}",
