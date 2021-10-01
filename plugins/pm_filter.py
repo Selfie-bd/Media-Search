@@ -5,23 +5,10 @@ from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GR
 from sample_info import HELP_TEXT, MAL_HELP_TXT, HELP_MSG
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
-
-if bool(os.environ.get("WEBHOOK", False)):
-    from info import AUTH_USERS_2
-else:
-    from info import AUTH_USERS_2
 import re
 from pyrogram.errors import UserNotParticipant
 from utils import get_filter_results, get_file_details, is_subscribed, get_poster
-from database.connections_mdb import(
-    all_connections,
-    active_connection,
-    if_active,
-    delete_connection,
-    make_active,
-    make_inactive
-)
-from database.filters_mdb import del_all, find_filter
+
 
 BUTTONS = {}
 BOT = {}
