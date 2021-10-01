@@ -3,7 +3,7 @@ import re
 import pymongo
 
 if bool(os.environ.get("WEBHOOK", False)):
-    from info import DATABASE_URI, DATABASE_NAME_2
+    from info import DATABASE_URI, DATABASE_NAME
 else:
     from info import DATABASE_URI, DATABASE_NAME
  
