@@ -5,9 +5,9 @@ from pyrogram import Client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 if bool(os.environ.get("WEBHOOK", False)):
-    from info import 
+    from info import AUTH_USERS_2
 else:
-    from info import 
+    from info import AUTH_USERS_2
 
 
 from database.filters_mdb import del_all, find_filter
@@ -24,7 +24,6 @@ from database.connections_mdb import(
 
 @Client.on_callback_query()
 async def cb_handler_2(client, qry):
-
  
     if qry.data == "delallconfirm":
         userid = qry.from_user.id
