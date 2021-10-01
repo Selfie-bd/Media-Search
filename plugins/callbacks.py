@@ -286,7 +286,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.message.delete()
 
             elif (chat_type == "group") or (chat_type == "supergroup"):
-                grp_id = qurry.message.chat.id
+                grp_id = query.message.chat.id
                 st = await client.get_chat_member(grp_id, userid)
                 if (st.status == "creator") or (str(userid) in AUTH_USERS_2):
                     await query.message.delete()
