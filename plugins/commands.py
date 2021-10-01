@@ -313,7 +313,7 @@ async def bot_status(client,message):
 
     if SAVE_USER == "yes":
         users = await all_users()
-        userstats = f"⚙️ **{users} users have started Me 😎!**\n\n"
+        userstats = f"⚙️ **{users} users have started Me 😎!**\n"
     else:
         userstats = ""
 
@@ -380,14 +380,14 @@ async def bot_status(client,message):
         free = humanbytes(f)
 
         disk = "\n**Disk Details**\n\n" \
-            f"> USED  :  {used} / {total}\n" \
-            f"> FREE  :  {free}\n\n"
+            f"**♻️ USED  :**  {used} / {total}\n" \
+            f"**♻️ FREE  :**  {free}\n\n"
     except:
         disk = ""
 
     await message.reply_text(
-        "**🦾 Current status of your bot!**\n\n"
-        f"♨️**{filters}** filters across **{chats}** chats\n\n"
+        "**🦾 Current status of your bot! :**\n\n"
+        f"📍**{filters}** filters across **{chats}** chats\n"
         f"{userstats}"
         f"🕰️ BOT Uptime: **{uptime}**\n\n"
         f"{quota_details}"
