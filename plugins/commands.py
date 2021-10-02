@@ -27,7 +27,7 @@ bot_logo = "https://telegra.ph/file/a78259e021cf8dba5335d.jpg"
 @Client.on_message(filters.command("start"))
 async def start(bot, cmd):
     usr_cmdall1 = cmd.text
-    if usr_cmdall1.startswith("/start subinps"):
+    if usr_cmdall1.startswith("/start claey"):
         if AUTH_CHANNEL:
             invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
             try:
@@ -180,7 +180,7 @@ async def total(bot, message):
     msg = await message.reply("Processing...⏳", quote=True)
     try:
         total = await Media.count_documents()
-        await msg.edit(f'🇹‌🇴‌🇹‌🇦‌🇱‌ 🇫‌🇮‌🇱‌🇪‌🇸‌🗃️: {total}')
+        await msg.edit(f'Total Files in DB🗃️: {total}')
     except Exception as e:
         logger.exception('Failed to check total files')
         await msg.edit(f'Error: {e}')
