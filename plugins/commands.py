@@ -454,17 +454,14 @@ async def showinfo(client, message):
         user_name = f"@{username}"
     else:
         user_name = "none"
-caption_1 = """
-f"👤 <b>Name</b> : {name}\n\n"
-f"<b>User ID</b> : <code>{id}</code>\n\n"
-f"<b>Username</b> : {user_name}\n\n"
-f"<b>Permanant USER link</b> : <a href='tg://user?id={id}'>Click here!</a>\n\n"
-f"<b>DC ID</b> : {dcid}\n\n"
-"""
 
     await message.reply_photo(
         photo=p_photo,
-        caption=caption_1,
+        caption="""👤 <b>Name</b> : {name}\n\n
+                <b>User ID</b> : <code>{id}</code>\n\n
+                <b>Username</b> : {user_name}\n\n
+                <b>Permanant USER link</b> : <a href='tg://user?id={id}'>Click here!</a>\n\n
+                <b>DC ID</b> : {dcid}\n""",
         quote=True,
         parse_mode="html"
     )
