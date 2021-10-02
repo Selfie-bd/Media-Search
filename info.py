@@ -34,6 +34,8 @@ SAVE_USER = os.environ.get("SAVE_USER", "no").lower()
 HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "")
 DATABASE_NAME_2 = str(os.environ.get("DATABASE_NAME_2", "Cluster0"))
 AUTH_USERS_2 = set(str(x) for x in os.environ.get("AUTH_USERS_2", "").split())
+DATABASE_URI_2 = os.environ.get("DATABASE_URI_2", "")
+
 
 # Manual Filter Commands 😁
 ADD_FILTER_CMD = os.environ.get("ADD_FILTER_CMD", "add")
