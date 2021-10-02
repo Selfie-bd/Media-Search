@@ -36,7 +36,7 @@ async def group(client, message):
                 file_id = file.file_id
                 filename = f"📀:[{get_size(file.file_size)}]📂{file.file_name}"
                 btn.append(
-                    [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{claeyz}?start=claeyz_-_-_-_{file_id}")]
+                    [InlineKeyboardButton(text=f"{filename}", url=f"https://telegram.dog/{claeyz}?start=claey_-_-_-_{file_id}")]
                 )
         else:
             return
