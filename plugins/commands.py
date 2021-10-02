@@ -444,17 +444,17 @@ async def showinfo(client, message):
             id = message.from_user.id
             username = message.from_user.username
             dcid = message.from_user.dc_id
-            p_photo = client.get_profile_photos(
-                chat_id=message.from_user.id,
-                offset=0,
-                limit=1
+            p_photo = await client.get_profile_photos(
+                   chat_id=message.from_user.id,
+                   offset=0,
+                   limit=1
             )
     
     if not str(username) == "None":
         user_name = f"@{username}"
     else:
         user_name = "none"
-        caption_1 = """
+caption_1 = """
 f"👤 <b>Name</b> : {name}\n\n"
 f"<b>User ID</b> : <code>{id}</code>\n\n"
 f"<b>Username</b> : {user_name}\n\n"
