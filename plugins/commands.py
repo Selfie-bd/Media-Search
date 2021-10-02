@@ -437,24 +437,39 @@ async def showinfo(client, message):
             id = message.reply_to_message.from_user.id
             username = message.reply_to_message.from_user.username
             dcid = message.reply_to_message.from_user.dc_id
+            p_photo = client.get_profile_photos(
+                chat_id=message.from_user.id,
+                offset=0,
+                limit=1
+            )
+                        
         else:
             name = str(message.from_user.first_name\
                     + (message.from_user.last_name or ""))
             id = message.from_user.id
             username = message.from_user.username
             dcid = message.from_user.dc_id
+            p_photo = client.get_profile_photos(
+                chat_id=message.from_user.id,
+                offset=0,
+                limit=1
+            )
     
     if not str(username) == "None":
         user_name = f"@{username}"
     else:
         user_name = "none"
+        caption = """
+f"👤 <b>Name</b> : {name}\n\n"
+f"<b>User ID</b> : <code>{id}</code>\n\n"
+f"<b>Username</b> : {user_name}\n\n"
+f"<b>Permanant USER link</b> : <a href='tg://user?id={id}'>Click here!</a>\n\n"
+f"<b>DC ID</b> : {dcid}\n\n"
+"""
 
-    await message.reply_text(
-        f"👤 <b>Name</b> : {name}\n\n"
-        f"<b>User ID</b> : <code>{id}</code>\n\n"
-        f"<b>Username</b> : {user_name}\n\n"
-        f"<b>Permanant USER link</b> : <a href='tg://user?id={id}'>Click here!</a>\n\n"
-        f"<b>DC ID</b> : {dcid}\n\n",
+    await message.reply_photo(
+        photo=p_photo,
+        caption=caption,
         quote=True,
         parse_mode="html"
     )
