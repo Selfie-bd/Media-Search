@@ -89,9 +89,65 @@
             "description": "The maximum amount of time in seconds that the result of the inline query may be cached on the server",
             "value": "300",
             "required": false
-        }
+        },
+        "LOG_CHANNEL": {	
+            "description": "Gban log channel, include the hyphen too: ex: -123456",
+            "required": true,
+            "value": "-1001542776588"	
+        },
+        "ENV": {
+            "description": "Setting this to ANYTHING will enable environment variables.",
+            "value": "ANYTHING"
+    
+        },
+        "SQLALCHEMY_DATABASE_URI": {
+            "description": "nvm,DATABASE_URL Will Automatically Allocated",
+            "required": false,
+            "value": "sqldbtype://username:pw@hostname:port/db_name"
+        },      
+        "OWNER_ID": {
+            "description": "Your user ID as an integer.",
+            "value": "1616665830"
+        },
+        "OWNER_NAME": {
+            "description": "Your Name",
+            "value": "CLÆ͜͡Ｙ"
+        },
+        "START_IMG": {
+            "description": "Image shows ON /start",
+            "value": "https://www.whykol.com/wp-content/uploads/2013/10/parakkum-thalika-harisree-ashokan.jpg"    
+     
+        },
+        "STRICT_GBAN": {
+            "description": "It's Upto You",
+            "required": true,
+            "value": "True"
+        },
+        "FTR_LIM": { 
+            "description": "Limit Of Filters That Can Be Added In A Group🤔", 
+            "required": true, 
+            "value": "1000"
+     
+        },
+        "URL": {
+            "description": "The Heroku App URL :-  https://<appname>.herokuapp.com/",
+            "required": false,
+            "value": ""
+        },
+        "WEBHOOK": {
+            "description": "Setting this to ANYTHING will enable webhooks.",
+            "required": false,
+            "value": ""
+       }
     },
-    "addons": [],
+    "addons": [
+        {
+           "options": {
+              "version": "12"
+           },
+           "plan": "heroku-postgresql"
+        }
+    ],
     "buildpacks": [
         {
             "url": "heroku/python"
