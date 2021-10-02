@@ -458,10 +458,12 @@ async def showinfo(client, message):
     await client.send_photo(
         chat_id=message.from_user.id,
         photo=p_photo,
-        caption="""👤 <b>Name</b> : {name}\n\n
-                <b>User ID</b> : <code>{id}</code>\n\n
-                <b>Username</b> : {user_name}\n\n
-                <b>Permanant USER link</b> : <a href='tg://user?id={id}'>Click here!</a>\n\n
-                <b>DC ID</b> : {dcid}\n""",
+        caption="""
+👤 <b>Name</b> : {name}\n\n
+<b>User ID</b> : <code>{id}</code>\n\n
+<b>Username</b> : {user_name}\n\n
+<b>Permanant USER link</b> : <a href='tg://user?id={id}'>Click here!</a>\n\n
+<b>DC ID</b> : {dcid}\n
+""",
         parse_mode="html"
     )
