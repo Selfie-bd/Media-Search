@@ -104,17 +104,6 @@ async def start(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("My CreatoR🧑‍💻", url="https://t.me/CLaY995")
-                    ],
-                    [
-                        InlineKeyboardButton("🔎 Search Here", switch_inline_query_current_chat=''),
-                        InlineKeyboardButton("🔗 Our-LinkZ", url="https://t.me/PrimeFlixMedia_All")
-                    ],
-                    [
-                        InlineKeyboardButton("About 👤", callback_data="about"),
-                        InlineKeyboardButton("Help 💭", callback_data="help")
-                    ],
-                    [
                         InlineKeyboardButton("➕Add me to Group✅", url="https://t.me/PFM_MediaSearchBot?startgroup=true")
                     ]
                 ]
@@ -204,34 +193,24 @@ async def delete(bot, message):
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Our-ChannelZ', url='https://t.me/PrimeFlixMedia_All'),
-            InlineKeyboardButton('Source-Code', url='https://t.me/Oomban_ULLATH')
+            InlineKeyboardButton('♻️ Channel', url='https://t.me/PrimeFlixMedia_All'),
+            InlineKeyboardButton('📋 Source-Code', url='https://t.me/Oomban_ULLATH')
         ],
         [
-            InlineKeyboardButton('Back', callback_data='start')
+            InlineKeyboardButton('❌ Close', callback_data='close_data')
         ]
         ]
     await message.reply(text="<b>Developer : <a href='https://t.me/CLaY995'>CLAEY</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://t.me/Oomban_ULLATH'>Click here</a>\nUpdate Channel : <a href='https://t.me/PrimeFlixMedia_All'>👉😁😁👈</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-
-@Client.on_message(filters.command('mal_help'))
-async def mal_help(bot, message):
-    buttons = [
-        [
-            InlineKeyboardButton('🏡 Home', callback_data='start'),
-            InlineKeyboardButton('👤 About', callback_data='about')
-        ]
-        ]
-    await message.reply(MAL_HELP_TXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 @Client.on_message(filters.command('help'))
 async def help(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Malayalam Translation 🌐', callback_data='mal_help')
+            InlineKeyboardButton('❌ Close', callback_data='close_data'),
+            InlineKeyboardButton('📋 Source', url='https://t.me/Oomban_ULLATH')
         ],
         [
-            InlineKeyboardButton('🏡 Home', callback_data='start'),
-            InlineKeyboardButton('👤 About', callback_data='about')
+            InlineKeyboardButton('♻️ Channel ♻️', url='https://t.me/PrimeFlixMedia_All')
         ]
         ]
     await message.reply(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
