@@ -28,7 +28,7 @@ AUTH_GROUPS = [int(admin) for admin in environ.get("AUTH_GROUPS", "").split()]
 
 # MongoDB information
 DATABASE_URI = environ['DATABASE_URI']
-DATABASE_NAME = environ['DATABASE_NAME_2']
+DATABASE_NAME = environ['DATABASE_NAME']
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 SAVE_USER = os.environ.get("SAVE_USER", "no").lower()
 HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "")
