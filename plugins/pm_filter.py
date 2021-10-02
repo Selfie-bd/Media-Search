@@ -320,55 +320,38 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "start":
             buttons = [
                 [
-                    InlineKeyboardButton("My-CreatoR🧑‍💻", url="https://t.me/CLaY995")
-                ],
-                [
-                    InlineKeyboardButton("🔎 Search Here", switch_inline_query_current_chat=''),
-                    InlineKeyboardButton("🔗 Our-LinkZ", url="https://t.me/PrimeFlixMedia_All")
-                ],
-                [
-                    InlineKeyboardButton("About", callback_data="about"),
-                    InlineKeyboardButton("Help", callback_data="help")
-                ],
-                [
                     InlineKeyboardButton("➕Add me to Group✅", url="https://t.me/PFM_MediaSearchBot?startgroup=true")
                 ]
                 ]
-            await query.message.edit(START_MSG.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode="html", disable_web_page_preview=True)
+            await query.message.edit(START_MSG.format(query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
+        elif query.data == "close_data":
+            await query.message.delete()
 
         elif query.data == "about":
             buttons = [
                 [
-                    InlineKeyboardButton('My LinkZ', url='https://t.me/PrimeFlixMedia_All'),
-                    InlineKeyboardButton('Source-Code', url='https://t.me/Oomban_ULLATH')
+                    InlineKeyboardButton('❌ Close', callback_data='close_data'),
+                    InlineKeyboardButton('📋 Source', url='https://t.me/Oomban_ULLATH')
                 ],
                 [
-                    InlineKeyboardButton('Back', callback_data='start')
+                    InlineKeyboardButton('♻️' Channel ♻️, url='https://t.me/PrimeFlixMedia_All')
                 ]
                 ]
-            await query.message.edit(text="<b>🧑‍💻Creator : <a href='https://t.me/ClaeyZ_UBot'>CLÆ͜͡Ｙ</a>\n🤩Available to EVERYONE\n🌏Language : <code>Python3</code>\n📚Library : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\n📋Source-Code : <a href='https://t.me/Oomban_ULLATH'>🔘Click here</a>\n📡Ma-Channel : <a href='https://t.me/PrimeFlixMedia_All'>PFM Links</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=False)
+            await query.message.edit(text="<b>🧑‍🔬 Created By : <a href='https://t.me/ClaeyZ_UBot'>CLÆ͜͡Ｙ</a>\n\n🤩 Available to EVERYONE\n🌏 Language : <code>Python3</code>\n📚 Library : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\n📋 Source-Code : <a href='https://t.me/Oomban_ULLATH'>🔘Click here</a>\n📡 Channel : <a href='https://t.me/PrimeFlixMedia_All'>PFM Links</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=False)
 
         elif query.data == "help":
             buttons = [
                 [
-                    InlineKeyboardButton('Malayalam Translation 🌐', callback_data='mal_help')
+                    InlineKeyboardButton('❌ Close', callback_data='close_data'),
+                    InlineKeyboardButton('📋 Source', url='https://t.me/Oomban_ULLATH')
                 ],
                 [
-                    InlineKeyboardButton('🏡 Home', callback_data='start'),
-                    InlineKeyboardButton('👤 About', callback_data='about')
+                    InlineKeyboardButton('♻️ Channel ♻️', url=https://t.me/PrimeFlixMedia_All')
                 ]
                 ]
             await query.message.edit(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
             
-        elif query.data == "mal_help":
-            buttons = [
-                [
-                    InlineKeyboardButton('🏡 Home', callback_data='start'),
-                    InlineKeyboardButton('👤 About', callback_data='about')
-                ]
-                ]
-            await query.message.edit(MAL_HELP_TXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-
         elif query.data.startswith("subinps"):
             ident, file_id = query.data.split("#")
             filedetails = await get_file_details(file_id)
@@ -386,8 +369,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('📡sʜᴀʀᴇ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats'),
-                        InlineKeyboardButton('Our-LinkZ', url='https://t.me/PrimeFlixMedia_All')
+                        InlineKeyboardButton('Share', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats'),
+                        InlineKeyboardButton('Channel', url='https://t.me/PrimeFlixMedia_All')
                     ]
                     ]
                 
@@ -418,8 +401,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{title}"
                 buttons = [
                     [
-                        InlineKeyboardButton(' 📡sʜᴀʀᴇ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats'),
-                        InlineKeyboardButton('Our-LinkZ', url='https://t.me/PrimeFlixMedia_All')
+                        InlineKeyboardButton('Share', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats'),
+                        InlineKeyboardButton('Channel', url='https://t.me/PrimeFlixMedia_All')
                     ]
                     ]
                 
