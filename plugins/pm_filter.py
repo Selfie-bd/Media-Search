@@ -347,7 +347,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('📋 Source', url='https://t.me/Oomban_ULLATH')
                 ],
                 [
-                    InlineKeyboardButton('♻️ Channel ♻️', url=https://t.me/PrimeFlixMedia_All')
+                    InlineKeyboardButton('♻️ Channel ♻️', url='https://t.me/PrimeFlixMedia_All')
                 ]
                 ]
             await query.message.edit(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
