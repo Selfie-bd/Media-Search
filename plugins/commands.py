@@ -456,7 +456,7 @@ async def showinfo(client, message):
         user_name = "none"
 
     await client.send_photo(
-        chat_id=message.from_use.id,
+        chat_id=message.from_user.id,
         photo=p_photo,
         caption="""👤 <b>Name</b> : {name}\n\n
                 <b>User ID</b> : <code>{id}</code>\n\n
