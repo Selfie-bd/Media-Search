@@ -68,7 +68,7 @@ async def filter(client, message):
                 file_id = file.file_id
                 filename = f"💽:[{get_size(file.file_size)}]📂{file.file_name}"
                 btn.append(
-                    [InlineKeyboardButton(text=f"{filename}",callback_data=f"subinps#{file_id}")]
+                    [InlineKeyboardButton(text=f"{filename}",callback_data=f"claey#{file_id}")]
                     )
         else:
             await message.reply_text(
