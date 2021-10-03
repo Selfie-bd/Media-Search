@@ -137,6 +137,9 @@ async def start(bot, cmd):
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
+    if str(message.from_user.id) not in AUTH_USERS_2:
+        await message.reply("You are not an Auth User.", quote=True)
+        return
     """Send basic information of channel"""
     if isinstance(CHANNELS, (int, str)):
         channels = [CHANNELS]
@@ -167,6 +170,9 @@ async def channel_info(bot, message):
 
 @Client.on_message(filters.command('total') & filters.user(ADMINS))
 async def total(bot, message):
+    if str(message.from_user.id) not in AUTH_USERS_2:
+        await message.reply("You are not an Auth User.", quote=True)
+        return
     """Show total files in database"""
     msg = await message.reply("Processing...⏳", quote=True)
     try:
@@ -179,6 +185,9 @@ async def total(bot, message):
 
 @Client.on_message(filters.command('logger') & filters.user(ADMINS))
 async def log_file(bot, message):
+    if str(message.from_user.id) not in AUTH_USERS_2:
+        await message.reply("You are not an Auth User.", quote=True)
+        return
     """Send log file"""
     try:
         await message.reply_document('TelegramBot.log')
@@ -188,6 +197,9 @@ async def log_file(bot, message):
 
 @Client.on_message(filters.command('delete') & filters.user(ADMINS))
 async def delete(bot, message):
+    if str(message.from_user.id) not in AUTH_USERS_2:
+        await message.reply("You are not an Auth User.", quote=True)
+        return
     """Delete file from database"""
     reply = message.reply_to_message
     if reply and reply.media:
@@ -434,9 +446,6 @@ async def bot_status(client,message):
 
 @Client.on_message(filters.private & filters.command('admincmd'))
 async def admincmd(bot, message):
-    if str(message.from_user.id) not in AUTH_USERS_2:
-        await message.reply("You are not an Auth User.", quote=True)
-        return
     admin_cmd_text="""
 𝐇𝐞𝐫𝐞 𝐚𝐫𝐞 𝐭𝐡𝐞 𝐁𝐨𝐭 𝐀𝐝𝐦𝐢𝐧 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬:
 
