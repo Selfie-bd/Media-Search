@@ -195,7 +195,7 @@ async def log_file(bot, message):
         await message.reply(str(e))
 
 
-@Client.on_message(filters.command('delete') & filters.user(ADMINS))
+@Client.on_message(filters.private & filters.command('delete'))
 async def delete(bot, message):
     if str(message.from_user.id) not in AUTH_USERS_2:
         await message.reply("You are not an Auth User.", quote=True)
