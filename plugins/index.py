@@ -2,7 +2,7 @@ import logging
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
-from info import ADMINS
+from info import ADMINS, AUTH_USERS_2
 import os
 from utils import save_file
 import pyromod.listen
@@ -10,8 +10,11 @@ logger = logging.getLogger(__name__)
 lock = asyncio.Lock()
 
 
-@Client.on_message(filters.command(['index', 'indexfiles']) & filters.user(ADMINS))
+@Client.on_message(filters.private & filters.command(['index', 'indexfiles']))
 async def index_files(bot, message):
+    if str(message.from_user.id) not in AUTH_USERS_2:
+        await message.reply("You are not an Auth User. If you want to contribute your Channel, contact @CLaY995", quote=True)
+        return
     """Save channel or group files"""
     if lock.locked():
         await message.reply('Wait until previous process complete.')
