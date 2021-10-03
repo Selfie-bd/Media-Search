@@ -8,9 +8,9 @@ import heroku3
 import requests
 
 if bool(os.environ.get("WEBHOOK", False)):
-    from info import SAVE_USER, HEROKU_API_KEY, BOT_START_TIME, AUTH_USERS_2
+    from info import Config
 else:
-    from info import SAVE_USER, HEROKU_API_KEY, BOT_START_TIME, AUTH_USERS_2
+    from info import Config
 
 
 import logging
@@ -137,7 +137,7 @@ async def start(bot, cmd):
 
 @Client.on_message(filters.private & filters.command('channel'))
 async def channel_info(bot, message):
-    if str(message.from_user.id) not in AUTH_USERS_2:
+    if str(message.from_user.id) not in Config.AUTH_USERS_2:
         await message.reply("You are not an Auth User.", quote=True)
         return
     """Send basic information of channel"""
@@ -170,7 +170,7 @@ async def channel_info(bot, message):
 
 @Client.on_message(filters.private & filters.command('total'))
 async def total(bot, message):
-    if str(message.from_user.id) not in AUTH_USERS_2:
+    if str(message.from_user.id) not in Config.AUTH_USERS_2:
         await message.reply("You are not an Auth User.", quote=True)
         return
     """Show total files in database"""
@@ -185,7 +185,7 @@ async def total(bot, message):
 
 @Client.on_message(filters.private & filters.command('logger'))
 async def log_file(bot, message):
-    if str(message.from_user.id) not in AUTH_USERS_2:
+    if str(message.from_user.id) not in Config.AUTH_USERS_2:
         await message.reply("You are not an Auth User.", quote=True)
         return
     """Send log file"""
@@ -197,7 +197,7 @@ async def log_file(bot, message):
 
 @Client.on_message(filters.private & filters.command('delete'))
 async def delete(bot, message):
-    if str(message.from_user.id) not in AUTH_USERS_2:
+    if str(message.from_user.id) not in Config.AUTH_USERS_2:
         await message.reply("You are not an Auth User.", quote=True)
         return
     """Delete file from database"""
@@ -309,7 +309,7 @@ async def showinfo(client, message):
             await message.reply_text("__Enter a valid USER ID__", quote=True, parse_mode="md")
             return           
 
-        if SAVE_USER == "yes":
+        if Config.SAVE_USER == "yes":
             name, username, dcid = await find_user(str(id))
         else:
             try:
@@ -355,13 +355,13 @@ async def showinfo(client, message):
 
 @Client.on_message((filters.private | filters.group) & filters.command('status'))
 async def bot_status(client,message):
-    if str(message.from_user.id) not in AUTH_USERS_2:
+    if str(message.from_user.id) not in Config.AUTH_USERS_2:
         await message.reply("You are not an Auth User.", quote=True)
         return
 
     chats, filters = await filter_stats()
 
-    if SAVE_USER == "yes":
+    if Config.SAVE_USER == "yes":
         users = await all_users()
         userstats = f"😁 {users} 𝐮𝐬𝐞𝐫𝐬 𝐡𝐚𝐯𝐞 𝐬𝐭𝐚𝐫𝐭𝐞𝐝 𝐌𝐞!\n"
     else:
@@ -369,7 +369,7 @@ async def bot_status(client,message):
 
     if HEROKU_API_KEY:
         try:
-            server = heroku3.from_key(HEROKU_API_KEY)
+            server = heroku3.from_key(Config.HEROKU_API_KEY)
 
             user_agent = (
                 'Mozilla/5.0 (Linux; Android 10; SM-G975F) '
@@ -379,7 +379,7 @@ async def bot_status(client,message):
             accountid = server.account().id
             headers = {
             'User-Agent': user_agent,
-            'Authorization': f'Bearer {HEROKU_API_KEY}',
+            'Authorization': f'Bearer {Config.HEROKU_API_KEY}',
             'Accept': 'application/vnd.heroku+json; version=3.account-quotas',
             }
 
@@ -420,7 +420,7 @@ async def bot_status(client,message):
     else:
         quota_details = ""
 
-    uptime = time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - BOT_START_TIME))
+    uptime = time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - Config.BOT_START_TIME))
 
     try:
         t, u, f = shutil.disk_usage(".")
