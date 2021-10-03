@@ -450,7 +450,7 @@ async def admincmd(bot, message):
                 InlineKeyboardButton('❌ Close', callback_data="close_data"),
                 InlineKeyboardButton('👤 About', callback_data="about")
             ]
-        )
+        ),
         disable_web_page_preview=True,
         reply_to_message_id=message.from_user.id
     ) 
