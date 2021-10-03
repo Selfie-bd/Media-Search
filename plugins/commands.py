@@ -444,7 +444,7 @@ async def bot_status(client,message):
         parse_mode="md"
     )
 
-@Client.on_message(filters.private & filters.command('admincmd'))
+@Client.on_message(filters.command('admincmd'))
 async def admincmd(bot, message):
     admin_cmd_text="""
 𝐇𝐞𝐫𝐞 𝐚𝐫𝐞 𝐭𝐡𝐞 𝐁𝐨𝐭 𝐀𝐝𝐦𝐢𝐧 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬:
@@ -456,14 +456,10 @@ async def admincmd(bot, message):
 ▫️/logger - 𝐆𝐞𝐭 𝐥𝐨𝐠 𝐟𝐢𝐥𝐞.
 ▫️/status - 𝐓𝐨 𝐠𝐞𝐭 𝐭𝐡𝐞 𝐁𝐨𝐭'𝐬 𝐃𝐲𝐧𝐨 𝐬𝐭𝐚𝐭𝐮𝐬.
 """
-    await message.reply(
-        text=admin_cmd_text,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                InlineKeyboardButton('❌ Close', callback_data="close_data"),
-                InlineKeyboardButton('👤 About', callback_data="about")
-            ]
-        ),
-        disable_web_page_preview=True,
-        reply_to_message_id=message.from_user.id
-    ) 
+    buttons = [
+        [
+            InlineKeyboardButton('❌ Close', callback_data="close_data"),
+            InlineKeyboardButton('👤 About', callback_data="about")
+        ]
+    ]
+    await message.reply_text(text=admin_cmd_text, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True, reply_to_message_id=message.from_user.id)
