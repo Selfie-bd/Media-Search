@@ -90,8 +90,8 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('📡sʜᴀʀᴇ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats'),
-            InlineKeyboardButton('Our-LinkZ', url='https://t.me/PrimeFlixMedia_All')
+            InlineKeyboardButton('Share', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats'),
+            InlineKeyboardButton('Channel', url='https://t.me/PrimeFlixMedia_All')
         ]
         ]
     return InlineKeyboardMarkup(buttons)
