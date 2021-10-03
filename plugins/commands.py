@@ -348,7 +348,7 @@ async def bot_status(client,message):
     else:
         userstats = ""
 
-    if Config.HEROKU_API_KEY:
+    if HEROKU_API_KEY:
         try:
             server = heroku3.from_key(HEROKU_API_KEY)
 
