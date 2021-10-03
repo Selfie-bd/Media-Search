@@ -431,3 +431,26 @@ async def bot_status(client,message):
         quote=True,
         parse_mode="md"
     )
+
+@Client.on_message(filters.private & filters.command('admincmd'))
+async def admincmd(bot, message):
+    admind_cmd_text="""
+𝐇𝐞𝐫𝐞 𝐚𝐫𝐞 𝐭𝐡𝐞 𝐁𝐨𝐭 𝐀𝐝𝐦𝐢𝐧 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬:
+
+▫️/index - 𝐓𝐨 𝐢𝐧𝐝𝐞𝐱 𝐚𝐥𝐥 𝐅𝐢𝐥𝐞𝐬 𝐟𝐫𝐨𝐦 𝐚 𝐂𝐡𝐚𝐧𝐧𝐞𝐥.
+▫️/channel - 𝐆𝐞𝐭 𝐛𝐚𝐬𝐢𝐜 𝐢𝐧𝐟𝐨𝐦𝐚𝐭𝐢𝐨𝐧 𝐚𝐛𝐨𝐮𝐭 𝐂𝐡𝐚𝐧𝐧𝐞𝐥𝐬.
+▫️/total - 𝐒𝐡𝐨𝐰 𝐭𝐨𝐭𝐚𝐥 𝐨𝐟 𝐬𝐚𝐯𝐞𝐝 𝐟𝐢𝐥𝐞𝐬.
+▫️/delete - 𝐃𝐞𝐥𝐞𝐭𝐞 𝐟𝐢𝐥𝐞 𝐟𝐫𝐨𝐦 𝐝𝐚𝐭𝐚𝐛𝐚𝐬𝐞.
+▫️/logger - 𝐆𝐞𝐭 𝐥𝐨𝐠 𝐟𝐢𝐥𝐞.
+"""
+    await message.reply(
+        text=admin_cmd_text,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                InlineKeyboardButton('❌ Close', callback_data="close_data"),
+                InlineKeyboardButton('👤 About', callback_data="about")
+            ]
+        )
+        disable_web_page_preview=True,
+        reply_to_message_id=message.from_user.id
+    ) 
