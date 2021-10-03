@@ -434,7 +434,7 @@ async def bot_status(client,message):
 
 @Client.on_message(filters.private & filters.command('admincmd'))
 async def admincmd(bot, message):
-    admind_cmd_text="""
+    admin_cmd_text="""
 𝐇𝐞𝐫𝐞 𝐚𝐫𝐞 𝐭𝐡𝐞 𝐁𝐨𝐭 𝐀𝐝𝐦𝐢𝐧 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬:
 
 ▫️/index - 𝐓𝐨 𝐢𝐧𝐝𝐞𝐱 𝐚𝐥𝐥 𝐅𝐢𝐥𝐞𝐬 𝐟𝐫𝐨𝐦 𝐚 𝐂𝐡𝐚𝐧𝐧𝐞𝐥.
