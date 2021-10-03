@@ -135,7 +135,7 @@ async def start(bot, cmd):
             except:
                 pass
 
-@Client.on_message(filters.command('channel') & filters.user(ADMINS))
+@Client.on_message(filters.private & filters.command('channel'))
 async def channel_info(bot, message):
     if str(message.from_user.id) not in AUTH_USERS_2:
         await message.reply("You are not an Auth User.", quote=True)
@@ -168,7 +168,7 @@ async def channel_info(bot, message):
         os.remove(file)
 
 
-@Client.on_message(filters.command('total') & filters.user(ADMINS))
+@Client.on_message(filters.private & filters.command('total'))
 async def total(bot, message):
     if str(message.from_user.id) not in AUTH_USERS_2:
         await message.reply("You are not an Auth User.", quote=True)
@@ -183,7 +183,7 @@ async def total(bot, message):
         await msg.edit(f'Error: {e}')
 
 
-@Client.on_message(filters.command('logger') & filters.user(ADMINS))
+@Client.on_message(filters.private & filters.command('logger'))
 async def log_file(bot, message):
     if str(message.from_user.id) not in AUTH_USERS_2:
         await message.reply("You are not an Auth User.", quote=True)
