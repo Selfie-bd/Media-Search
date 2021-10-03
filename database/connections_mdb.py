@@ -2,12 +2,12 @@ import os
 import pymongo
 
 if bool(os.environ.get("WEBHOOK", False)):
-    from info import DATABASE_URI, DATABASE_NAME_2
+    from info import Config
 else:
-    from info import DATABASE_URI, DATABASE_NAME_2
+    from info import Config
  
-myclient = pymongo.MongoClient(DATABASE_URI)
-mydb = myclient[DATABASE_NAME_2]
+myclient = pymongo.MongoClient(Config.DATABASE_URI_2)
+mydb = myclient[Config.DATABASE_NAME_2]
 mycol = mydb['CONNECTION']   
 
 
