@@ -254,32 +254,29 @@ async def mera_links(bot, message):
             InlineKeyboardButton('🔗 Other Links 🔗', url='https://t.me/PrimeFlixMedia_All')
         ],
         [
-            InlineKeyboardButton('📡sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats')
+            InlineKeyboardButton('🇸‌🇭‌🇦‌🇷‌🇪‌', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats')
         ]
         ]
-    await message.reply(text='**PFM Links..👇✨. Join & Support ✨**', reply_markup=InlineKeyboardMarkup(buttons), parse_mode='markdown', disable_web_page_preview=True)
+    await message.reply_text(text='**PFM Links..👇✨. Join & Support ✨**', reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True, reply_to_message_id=message.from_user.id)
 
 @Client.on_message(filters.command(["reqformat"]))
 async def reqformat(bot, message):
     req_txt = """
-<b>🎬 Movies/Series Request Format:</b>
+▫️𝐌𝐨𝐯𝐢𝐞𝐬/𝐒𝐞𝐫𝐢𝐞𝐬 𝐫𝐞𝐪𝐮𝐞𝐬𝐭 𝐟𝐨𝐫𝐦𝐚𝐭:
 
-•</b> <code>'Movie Name' + YEAR</code>
+▪️**𝙼𝚘𝚟𝚒𝚎 𝙽𝚊𝚖𝚎 + 𝚈𝚎𝚊𝚛**
 
-<b>👤 #Example:</b> 
-Avatar 2009
-Inception 2010
-Hush 2016
+▪️#𝐄𝐱𝐚𝐦𝐩𝐥𝐞: Avatar 2009, Inception 2010..
 
-⚠️ While Requesting always remember to send the correct Movie/Series Name. 
-💥 <b>#Tip</b>: Copy-Paste the Movie Name from Google.
+▫️𝐖𝐡𝐢𝐥𝐞 𝐑𝐞𝐪𝐮𝐞𝐬𝐭𝐢𝐧𝐠 𝐚𝐥𝐰𝐚𝐲𝐬 𝐫𝐞𝐦𝐞𝐦𝐛𝐞𝐫 𝐭𝐨 𝐬𝐞𝐧𝐝 𝐭𝐡𝐞 𝐜𝐨𝐫𝐫𝐞𝐜𝐭 𝐌𝐨𝐯𝐢𝐞/𝐒𝐞𝐫𝐢𝐞𝐬 𝐍𝐚𝐦𝐞.
+▫️#ᴛɪᴘ: 𝐂𝐨𝐩𝐲-𝐏𝐚𝐬𝐭𝐞 𝐭𝐡𝐞 𝐌𝐨𝐯𝐢𝐞 𝐍𝐚𝐦𝐞 𝐟𝐫𝐨𝐦 𝐆𝐨𝐨𝐠𝐥𝐞.
 """
     buttons = [
         [
-            InlineKeyboardButton('📡sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats')
+            InlineKeyboardButton('🇸‌🇭‌🇦‌🇷‌🇪‌', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats')
         ]
         ]
-    await message.reply(text=req_txt, reply_markup=InlineKeyboardMarkup(buttons), parse_mode="html", disable_web_page_preview=True)
+    await message.reply_text(text=req_txt, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True, reply_to_message_id=message.from_user.id)
 
 @Client.on_message(filters.command('info') & (filters.private | filters.group))
 async def showinfo(client, message):
