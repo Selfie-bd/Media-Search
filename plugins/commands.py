@@ -345,6 +345,7 @@ async def showinfo(client, message):
 async def bot_status(client,message):
     if str(message.from_user.id) not in AUTH_USERS_2:
         await message.reply("You are not an Auth User.", quote=True)
+        return
 
     chats, filters = await filter_stats()
 
