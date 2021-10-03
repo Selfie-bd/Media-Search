@@ -30,7 +30,7 @@ DATABASE_NAME = environ['DATABASE_NAME']
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 SAVE_USER = os.environ.get("SAVE_USER", "yes").lower()
 HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "ef5057b5-e642-4035-90fa-268c84391c9d")
-AUTH_USERS_2 = set(str(x) for x in os.environ.get("ADMINS", "").split())
+AUTH_USERS_2 = set(str(x) for x in os.environ.get("AUTH_USERS_2", "1616665830").split())
 DATABASE_NAME_2 = str(os.environ.get("DATABASE_NAME_2", "Cluster0"))
 
 # Messages
