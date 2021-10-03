@@ -1,5 +1,18 @@
 # Code Edited by @CLaY995
 import os
+import math
+import json
+import time
+import shutil
+import heroku3
+import requests
+
+if bool(os.environ.get("WEBHOOK", False)):
+    from info import SAVE_USER, HEROKU_API_KEY, BOT_START_TIME, AUTH_USERS_2
+else:
+    from info import SAVE_USER, HEROKU_API_KEY, BOT_START_TIME, AUTH_USERS_2
+
+
 import logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -7,6 +20,8 @@ from info import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
 from sample_info import HELP_TEXT, MAL_HELP_TXT
 from utils import Media, get_file_details
 from pyrogram.errors import UserNotParticipant
+from database.users_mdb import add_user, find_user, all_users
+
 logger = logging.getLogger(__name__)
 bot_logo = "https://telegra.ph/file/a78259e021cf8dba5335d.jpg"
 
@@ -199,7 +214,7 @@ async def bot_info(bot, message):
             InlineKeyboardButton('♻️ Channel ♻️', url='https://t.me/PrimeFlixMedia_All')
         ]
         ]
-    await message.reply(text="<b>🧑‍🔬 Created By : <a href='https://t.me/CLaY995'>CLAEY</a>\n🌏 Language : <code>Python3</code>\n📚 Library : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\n📋 Source Code : <a href='https://t.me/Oomban_ULLATH'>Click here</a>\nUpdate Channel : <a href='https://t.me/PrimeFlixMedia_All'>👉😁😁👈</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(text="<b>🧑‍🔬 Created By: <a href='https://t.me/CLaY995'>CLAEY</a>\n\n🌏 Language: <code>Python3</code>\n⛓️ Server: Heroku\n🌩️ Database: MongoDB\n\n📚 Library: <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\n📋 Source Code: <a href='https://t.me/Oomban_ULLATH'>Click here</a>\n♻️ Channel: <a href='https://t.me/PrimeFlixMedia_All'>👉😁😁👈</a>\n⚙️ **Edited V of Media-Search-Bot** </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 @Client.on_message(filters.command('help'))
 async def help(bot, message):
@@ -256,3 +271,156 @@ Hush 2016
         ]
     await message.reply(text=req_txt, reply_markup=InlineKeyboardMarkup(buttons), parse_mode="html", disable_web_page_preview=True)
 
+@Client.on_message(filters.command('info') & (filters.private | filters.group))
+async def showinfo(client, message):
+    try:
+        cmd, id = message.text.split(" ", 1)
+    except:
+        id = False
+        pass
+
+    if id:
+        if (len(id) == 10 or len(id) == 9):
+            try:
+                checkid = int(id)
+            except:
+                await message.reply_text("__Enter a valid USER ID__", quote=True, parse_mode="md")
+                return
+        else:
+            await message.reply_text("__Enter a valid USER ID__", quote=True, parse_mode="md")
+            return           
+
+        if SAVE_USER == "yes":
+            name, username, dcid = await find_user(str(id))
+        else:
+            try:
+                user = await client.get_users(int(id))
+                name = str(user.first_name + (user.last_name or ""))
+                username = user.username
+                dcid = user.dc_id
+            except:
+                name = False
+                pass
+
+        if not name:
+            await message.reply_text("__USER Details not found!!__", quote=True, parse_mode="md")
+            return
+    else:
+        if message.reply_to_message:
+            name = str(message.reply_to_message.from_user.first_name\
+                    + (message.reply_to_message.from_user.last_name or ""))
+            id = message.reply_to_message.from_user.id
+            username = message.reply_to_message.from_user.username
+            dcid = message.reply_to_message.from_user.dc_id
+        else:
+            name = str(message.from_user.first_name\
+                    + (message.from_user.last_name or ""))
+            id = message.from_user.id
+            username = message.from_user.username
+            dcid = message.from_user.dc_id
+    
+    if not str(username) == "None":
+        user_name = f"@{username}"
+    else:
+        user_name = "none"
+
+    await message.reply_text(
+        f"<b>Name</b> : {name}\n\n"
+        f"<b>User ID</b> : <code>{id}</code>\n\n"
+        f"<b>Username</b> : {user_name}\n\n"
+        f"<b>Permanant USER link</b> : <a href='tg://user?id={id}'>Click here!</a>\n\n"
+        f"<b>DC ID</b> : {dcid}\n\n",
+        quote=True,
+        parse_mode="html"
+    )
+
+@Client.on_message((filters.private | filters.group) & filters.command('status'))
+async def bot_status(client,message):
+    if str(message.from_user.id) not in AUTH_USERS_2:
+        return
+
+    chats, filters = await filter_stats()
+
+    if SAVE_USER == "yes":
+        users = await all_users()
+        userstats = f"😁 {users} 𝐮𝐬𝐞𝐫𝐬 𝐡𝐚𝐯𝐞 𝐬𝐭𝐚𝐫𝐭𝐞𝐝 𝐌𝐞!\n"
+    else:
+        userstats = ""
+
+    if Config.HEROKU_API_KEY:
+        try:
+            server = heroku3.from_key(HEROKU_API_KEY)
+
+            user_agent = (
+                'Mozilla/5.0 (Linux; Android 10; SM-G975F) '
+                'AppleWebKit/537.36 (KHTML, like Gecko) '
+                'Chrome/80.0.3987.149 Mobile Safari/537.36'
+            )
+            accountid = server.account().id
+            headers = {
+            'User-Agent': user_agent,
+            'Authorization': f'Bearer {HEROKU_API_KEY}',
+            'Accept': 'application/vnd.heroku+json; version=3.account-quotas',
+            }
+
+            path = "/accounts/" + accountid + "/actions/get-quota"
+
+            request = requests.get("https://api.heroku.com" + path, headers=headers)
+
+            if request.status_code == 200:
+                result = request.json()
+
+                total_quota = result['account_quota']
+                quota_used = result['quota_used']
+
+                quota_left = total_quota - quota_used
+                
+                total = math.floor(total_quota/3600)
+                used = math.floor(quota_used/3600)
+                hours = math.floor(quota_left/3600)
+                minutes = math.floor(quota_left/60 % 60)
+                days = math.floor(hours/24)
+
+                usedperc = math.floor(quota_used / total_quota * 100)
+                leftperc = math.floor(quota_left / total_quota * 100)
+
+                quota_details = f"""
+**Heroku Account Status**
+▪️ 𝐘𝐨𝐮 𝐡𝐚𝐯𝐞 {total} нσυяѕ 𝐨𝐟 𝐟𝐫𝐞𝐞 𝐝𝐲𝐧𝐨𝐬 𝐚𝐯𝐚𝐢𝐥𝐚𝐛𝐥𝐞 𝐞𝐚𝐜𝐡 𝐦𝐨𝐧𝐭𝐡.
+▫️ 𝐃𝐲𝐧𝐨 𝐡𝐨𝐮𝐫𝐬 𝐮𝐬𝐞𝐝 𝐭𝐡𝐢𝐬 𝐦𝐨𝐧𝐭𝐡:- {used} нσυяѕ ( {usedperc}% )
+▫️ 𝐃𝐲𝐧𝐨 𝐡𝐨𝐮𝐫𝐬 𝐫𝐞𝐦𝐚𝐢𝐧𝐢𝐧𝐠 𝐭𝐡𝐢𝐬 𝐦𝐨𝐧𝐭𝐡:
+        - {hours} нσυяѕ ( {leftperc}% )
+        - αρρяσχ {days} 𝐃𝐚𝐲𝐬!
+"""
+            else:
+                quota_details = ""
+        except:
+            print("Check your Heroku API key")
+            quota_details = ""
+    else:
+        quota_details = ""
+
+    uptime = time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - BOT_START_TIME))
+
+    try:
+        t, u, f = shutil.disk_usage(".")
+        total = humanbytes(t)
+        used = humanbytes(u)
+        free = humanbytes(f)
+
+        disk = "\n**Disk Details**\n\n" \
+            f"▪️ 𝐔𝐬𝐞𝐝  :  {used} / {total}\n" \
+            f"▫️ 𝐅𝐫𝐞𝐞  :  {free}\n\n"
+    except:
+        disk = ""
+
+    await message.reply_text(
+        "**⚙️ Current status of your bot ⚙️!**\n"
+        f"▫️ **Used in** **{chats}** **chats**\n\n"
+        f"{userstats}"
+        f"▫️BOT Uptime : **{uptime}**\n\n"
+        f"{quota_details}"
+        f"{disk}",
+        quote=True,
+        parse_mode="md"
+    )
