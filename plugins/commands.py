@@ -344,7 +344,7 @@ async def showinfo(client, message):
 @Client.on_message((filters.private | filters.group) & filters.command('status'))
 async def bot_status(client,message):
     if str(message.from_user.id) not in AUTH_USERS_2:
-        return
+        await message.reply("You are not an Auth User.", quote=True)
 
     chats, filters = await filter_stats()
 
