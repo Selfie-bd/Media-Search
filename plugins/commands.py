@@ -434,6 +434,9 @@ async def bot_status(client,message):
 
 @Client.on_message(filters.private & filters.command('admincmd'))
 async def admincmd(bot, message):
+    if str(message.from_user.id) not in AUTH_USERS_2:
+        await message.reply("You are not an Auth User.", quote=True)
+        return
     admin_cmd_text="""
 𝐇𝐞𝐫𝐞 𝐚𝐫𝐞 𝐭𝐡𝐞 𝐁𝐨𝐭 𝐀𝐝𝐦𝐢𝐧 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬:
 
