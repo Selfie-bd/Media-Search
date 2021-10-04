@@ -22,7 +22,7 @@ from database.filters_mdb import filter_stats
 from database.users_mdb import add_user, find_user, all_users
 from plugins.helpers import humanbytes
 logger = logging.getLogger(__name__)
-bot_logo = "https://telegra.ph/file/a78259e021cf8dba5335d.jpg"
+bot_logo = "https://telegra.ph/file/f8786ee32888df6c21ce5.jpg"
 
 @Client.on_message(filters.command("start"))
 async def start(bot, cmd):
@@ -83,10 +83,10 @@ async def start(bot, cmd):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('📡sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats')
+                        InlineKeyboardButton('📡sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ📡', url='https://t.me/share/url?url=%20https://t.me/umlinks')
                     ],
                     [
-                        InlineKeyboardButton('📼 Channel Links 📼', url='https://t.me/PrimeFlixMedia_All')
+                        InlineKeyboardButton('📼 Channel Links 📼', url='https://t.me/umlinks')
                     ]
                     ]
                 await bot.send_cached_media(
@@ -96,7 +96,7 @@ async def start(bot, cmd):
                     reply_markup=InlineKeyboardMarkup(buttons)
                     )
         except Exception as err:
-            await cmd.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
+            await cmd.reply_text(f"Something went wrong! Contact @groupdc\n\n**Error:** `{err}`")
     elif len(cmd.command) > 1 and cmd.command[1] == 'subscribe':
         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
         await bot.send_message(
@@ -118,17 +118,17 @@ async def start(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("♨️ My Creator ♨️", url="https://t.me/CLaY995")
+                        InlineKeyboardButton("♨️ My Creator ♨️", url="https://t.me/selfiebd")
                     ],
                     [
-                        InlineKeyboardButton("🔗 Our-LinkZ", url="https://t.me/PrimeFlixMedia_All")
+                        InlineKeyboardButton("🔗 Our-LinkZ", url="https://t.me/umlinks")
                     ],
                     [
                         InlineKeyboardButton("About 👤", callback_data="about"),
                         InlineKeyboardButton("Help 💭", callback_data="help")
                     ],
                     [
-                        InlineKeyboardButton("➕Add me to Group✅", url="https://t.me/PFM_MediaSearchBot?startgroup=true")
+                        InlineKeyboardButton("➕Add me to Group✅", url="https://t.me/Mediasearchdcbot?startgroup=true")
                     ]
                 ]
             )
@@ -226,24 +226,24 @@ async def delete(bot, message):
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Our-ChannelZ', url='https://t.me/PrimeFlixMedia_All'),
-            InlineKeyboardButton('Source-Code', url='https://t.me/Oomban_ULLATH')
+            InlineKeyboardButton('Our-ChannelZ', url='https://t.me/umlinks'),
+            InlineKeyboardButton('Source-Code', url='https://t.me/selfiebd')
         ],
         [
             InlineKeyboardButton('Back', callback_data='start')
         ]
         ]
-    await message.reply(text="<b>Developer : <a href='https://t.me/CLaY995'>CLAEY</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://t.me/Oomban_ULLATH'>Click here</a>\nUpdate Channel : <a href='https://t.me/PrimeFlixMedia_All'>👉😁😁👈</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(text="<b>Developer : <a href='https://t.me/selfiebd'>CLAEY</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://t.me/selfiebd'>Click here</a>\nUpdate Channel : <a href='https://t.me/umlinks'>👉😁😁👈</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 @Client.on_message(filters.command("manual_help"))
 async def manual_help(bot, message):
     buttons = [
         [
-            InlineKeyboardButton("Auto-Filter 🦾", callback_data="help")
+            InlineKeyboardButton("Auto-Filter", callback_data="help")
         ],
         [
-            InlineKeyboardButton("Home 🏘️", callback_data="start"),
-            InlineKeyboardButton("About 👤", callback_data="about")
+            InlineKeyboardButton("Home ", callback_data="start"),
+            InlineKeyboardButton("About ", callback_data="about")
         ]
         ]
     await message.reply(HELP_MSG, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -252,11 +252,11 @@ async def manual_help(bot, message):
 async def help(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Manual Filtering 🌐', callback_data='manual_help')
+            InlineKeyboardButton('Manual Filtering ', callback_data='manual_help')
         ],
         [
-            InlineKeyboardButton('🏡 Home', callback_data='start'),
-            InlineKeyboardButton('👤 About', callback_data='about')
+            InlineKeyboardButton('Home', callback_data='start'),
+            InlineKeyboardButton('About', callback_data='about')
         ]
         ]
     await message.reply(HELP_TEXT, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -265,18 +265,18 @@ async def help(bot, message):
 async def mera_links(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Movies 🎞️:', callback_data='ignore'),
-            InlineKeyboardButton('🔘 Click Here', url='https://t.me/joinchat/dZmnXiQ5a2ViMWZl')
+            InlineKeyboardButton('Movies :', callback_data='ignore'),
+            InlineKeyboardButton('Click Here', url='https://t.me/umlinks')
         ],
         [
-            InlineKeyboardButton('Series 🎬:', callback_data='ignore'),
-            InlineKeyboardButton('🔘 Click Here', url='https://t.me/joinchat/vz04fx0LgSI5MzZl')
+            InlineKeyboardButton('Series :', callback_data='ignore'),
+            InlineKeyboardButton('Click Here', url='https://t.me/umlinks')
         ],
         [
-            InlineKeyboardButton('🔗 Other Links 🔗', url='https://t.me/PrimeFlixMedia_All')
+            InlineKeyboardButton(' Other Links ', url='https://t.me/groupdc')
         ],
         [
-            InlineKeyboardButton('📡sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats')
+            InlineKeyboardButton('📡sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ📡', url='https://t.me/share/url?url=%20https://t.me/umlinks')
         ]
         ]
     await message.reply(text='**PFM Links..👇✨. Join & Support ✨**', reply_markup=InlineKeyboardMarkup(buttons), parse_mode='markdown', disable_web_page_preview=True)
@@ -298,7 +298,7 @@ Hush 2016
 """
     buttons = [
         [
-            InlineKeyboardButton('📡sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ📡', url='https://t.me/share/url?url=%20https://t.me/PrimeFlix_Chats')
+            InlineKeyboardButton('📡sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ📡', url='https://t.me/share/url?url=%20https://t.me/umlinks')
         ]
         ]
     await message.reply(text=req_txt, reply_markup=InlineKeyboardMarkup(buttons), parse_mode="html", disable_web_page_preview=True)
