@@ -42,6 +42,24 @@ class Bot(Client):
         await super().stop()
         print("Bot stopped. 𝔹𝕐𝔼.")
 
+@bot.on_message(filters.regex(r'https?://[^\s]+') & filters.private)
+async def link_handler(bot, message):
+    link = message.matches[0].group(0)
+    try:
+        short_link = await get_shortlink(link)
+        await message.reply(f'Oii Buddy ♥️! Your Link is Ready \n\nHere is your 👉 [`{short_link}`]({short_link})', quote=True)
+    except Exception as e:
+        await message.reply(f'Error: {e}', quote=True)
+
+
+async def get_shortlink(link):
+    url = 'https://droplink.co/api'
+    params = {'api': API_KEY, 'url': link}
+
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url, params=params, raise_for_status=True) as response:
+            data = await response.json()
+            return data["shortenedUrl"]
 
 app = Bot()
 app.run()
